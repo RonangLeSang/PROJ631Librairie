@@ -16,7 +16,7 @@ public class Advice extends Item{
         this.idUser=result.getInt("login");
         this.date=result.getDate("date");
         this.star=result.getInt("etoiles");
-        this.comment=result.getString("commentaire");
+        this.comment=result.getString("commentaire");//1
     }
 
 
