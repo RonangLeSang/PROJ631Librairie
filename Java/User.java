@@ -1,38 +1,38 @@
 import java.util.Date;
 
 public class User {
-  private String login;
-  private String password;
-  private Date creationDate;
+  private String Login;
+  private String Password;
+  private Date CreationDate;
 
   public User(String login, String password, Date creationDate) {
-    this.login = login;
-    this.password = password;
-    this.creationDate = creationDate;
+    this.Login = login;
+    this.Password = password;
+    this.CreationDate = creationDate;
   }
 
   // Getters and Setters
   public String getLogin() {
-    return login;
+    return Login;
   }
 
   public void setLogin(String login) {
-    this.login = login;
+    this.Login = login;
   }
 
   public String getPassword() {
-    return password;
+    return Password;
   }
 
   public void setPassword(String password) {
-    this.password = password;
+    this.Password = password;
   }
 
   public Date getCreationDate() {
-    return creationDate;
+    return CreationDate;
   }
 
   public void setCreationDate(Date creationDate) {
-    this.creationDate = creationDate;
+    this.CreationDate = creationDate;
   }
 }
