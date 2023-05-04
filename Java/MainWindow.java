@@ -74,6 +74,6 @@ public class MainWindow extends JFrame {
         scrollingArea.setViewportView(items);
         items.setLayoutOrientation(JList.VERTICAL);
 
-        this.add(scrollingArea, BorderLayout.CENTER);
+        this.add(scrollingArea, BorderLayout.SOUTH);
     }
 }
