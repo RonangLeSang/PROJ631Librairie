@@ -10,7 +10,7 @@
         } else {  
             $msg = "connecté au serveur " . mysqli_get_host_info($conn);
             /*Sélection de la base de données*/
-            mysqli_select_db($conn, "chafikya"); 
+            mysqli_select_db($conn, "tafarou"); 
             /*mysqli_select_db($conn, "etu"); */ /*sélection de la base sous la VM info642*/
     
             /*Encodage UTF8 pour les échanges avecla BD*/
@@ -28,9 +28,7 @@
 		<h1>Ma Librairie</h1>
 		<nav>
 			<ul>
-				<li><a href="#">Accueil</a></li>
-				<li><a href="#">Livres</a></li>
-				<li><a href="#">Auteurs</a></li>
+				<li><a href="tous_les_livres.php">Livres</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 			<ul>
@@ -40,20 +38,20 @@
 	</header>
     <h2>filtrer par genre</h2>
         <div class="genre">
-        
-        $sql = "SELECT DISTINCT genre FROM Livre";
-        $result = mysqli_query($conn, $sql);
+        <?php
+        $sql1 = "SELECT DISTINCT genre FROM Livre";
+        $result1 = mysqli_query($conn, $sql1);
 
-        if (mysqli_num_rows($result) > 0) {
+        //if (mysqli_num_rows($result) > 0) {
             echo "<h2>Genres</h2>";
             echo "<ul>";
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result1)) {
                 $genre = $row["genre"];
                 echo "<li><a href='livres.php?genre=" . urlencode($genre) . "'>$genre</a></li>";
-        }
+            }
         echo "</ul>";
-        }
-        
+        //}
+        ?>
  
         </div>
 
