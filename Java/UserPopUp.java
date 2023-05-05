@@ -1,2 +1,4 @@
-public class UserPopUp {
+
+public class UserPopUp extends PopUp{
+
 }

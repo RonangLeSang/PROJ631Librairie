@@ -1,2 +1,2 @@
-public class AdvicePopUp {
+public class AdvicePopUp extends PopUp{
 }

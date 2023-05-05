@@ -1,2 +1,2 @@
-public class BookPopUp {
+public class BookPopUp extends PopUp{
 }
