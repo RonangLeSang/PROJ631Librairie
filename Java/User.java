@@ -43,7 +43,7 @@ public class User extends Item{
     return
              Login + '\'' +
 
-             CreationDate
+             ", "+CreationDate
             ;
   }
 }
