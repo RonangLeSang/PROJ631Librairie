@@ -8,20 +8,21 @@
     </head>
     <body>
         <header>
-            <div class="connection">
-                <!-- Mettre un form pour la suite -->
-                <input type="submit" value="Se connecter">
-                <input type="submit" value="S'inscrire">
-            </div>
-
-            <nav class="top-bar">
+        <nav class="top-bar">
                 <ul>
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="#">Genre</a></li>
                 </ul>
                 
                 <input type="text" name="search" placeholder="Rechercher un livre">
-            </nav>
+        </nav>
+        <div class="connection">
+            <!-- Mettre un form pour la suite -->
+            <input type="submit" value="Se connecter">
+            <input type="submit" value="S'inscrire">
+        </div>
+
+            
             
         </header>
     <h1>Notre Sélection de livre</h1>
