@@ -1,0 +1,19 @@
+body{
+    background-color: #EBE7D4;
+    color: #AC7E3F;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    border: 2px solid brown;
+    margin-top: 10%;
+    margin-left : 20%;
+    margin-right: 20%;
+    padding: 20px;
+}
+
+.connection{
+    background-color: brown;
+    margin-left: 80%;
+}
