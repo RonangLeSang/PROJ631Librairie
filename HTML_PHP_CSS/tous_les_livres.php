@@ -7,13 +7,15 @@
         <link rel="stylesheet" type="text/css" href="css/tous_les_livres.css">
     </head>
     <body>
-        
-    <div class="connection">
-        <!-- Mettre un form pour la suite -->
-        <input type="submit" value="Se connecter">
-        <input type="submit" value="S'inscrire">
-    </div>
-        <h1>Notre Sélection de livre</h1>
+    <header>
+        <div class="connection">
+            <!-- Mettre un form pour la suite -->
+            <input type="submit" value="Se connecter">
+            <input type="submit" value="S'inscrire">
+        </div>
+            
+    </header>
+    <h1>Notre Sélection de livre</h1>
         
         <div class="books">
             <?php

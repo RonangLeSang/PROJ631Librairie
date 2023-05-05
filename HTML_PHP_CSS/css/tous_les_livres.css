@@ -1,6 +1,7 @@
 body{
     background-color: #EBE7D4;
     color: #AC7E3F;
+    margin: 0;
 }
 
 h1{
@@ -11,9 +12,22 @@ h1{
     margin-left : 20%;
     margin-right: 20%;
     padding: 20px;
+
+}
+
+header{
+    background-color: #FDF9E5;
+    height: 50px;
+
 }
 
 .connection{
-    background-color: brown;
-    margin-left: 80%;
+    background-color: #FDF9E5;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+.connection input{
+    margin : 10px;
 }
