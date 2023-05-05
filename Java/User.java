@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class User {
+public class User extends Item{
   private String Login;
   private String Password;
   private Date CreationDate;
