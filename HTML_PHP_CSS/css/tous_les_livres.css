@@ -18,14 +18,17 @@ h1{
 header{
     background-color: #FDF9E5;
     height: 50px;
+    display: flex;
+    justify-content: space-between; /* Espacer les éléments au maximum */
+    align-items: center; /* Aligner les éléments verticalement au centre */
 
 }
 
 .connection{
     background-color: #FDF9E5;
     display: flex;
-    justify-content: end;
-    align-items: center;
+    width: 20%;
+    justify-content: center;
     
 }
 .connection input{
@@ -50,3 +53,19 @@ display: inline-block;
     display: inline-block;
     margin: 5px;
 }
+
+nav.top-bar {
+    display: flex;
+    justify-content: center; /* Aligner les éléments horizontalement au centre */
+    align-items: center; /* Aligner les éléments verticalement au centre */
+    width: 80%;
+  }
+  
+  nav.top-bar ul {
+    list-style: none; /* Enlever les puces des listes */
+    display: flex; /* Activer le mode flexbox pour les éléments de la liste */
+  }
+  
+  nav.top-bar li {
+    margin: 0 10px; /* Ajouter de l'espace entre les éléments de la liste */
+  }
