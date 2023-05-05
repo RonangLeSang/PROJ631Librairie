@@ -11,20 +11,25 @@ public class Advice extends Item{
     private int star;
     private String comment;
 
+    private String nameBook;
+    private String nameUser;
+
     public Advice(ResultSet result) throws SQLException {
         this.idBook=result.getInt("id_livre");
         this.idUser=result.getInt("login");
         this.date=result.getDate("date");
         this.star=result.getInt("etoiles");
         this.comment=result.getString("commentaire");
+        this.nameUser=result.getString("");
+        this.nameBook=result.getString("");
     }
 
     @Override
     public String toString() {
         return
-                "id livre : " + idBook +
-                ", id de l'utilisateur : " + idUser +
-                        date +
+                nameBook+
+                ", " + nameUser +
+                 ", "+       date +
                  ", "+ star + "étoiles"
 
                 ;
