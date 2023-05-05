@@ -3,7 +3,6 @@ body{
     color: #AC7E3F;
     margin: 0;
 }
-
 h1{
     display: flex;
     justify-content: center;
@@ -13,21 +12,4 @@ h1{
     margin-right: 20%;
     padding: 20px;
 
-}
-
-header{
-    background-color: #FDF9E5;
-    height: 50px;
-
-}
-
-.connection{
-    background-color: #FDF9E5;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    
-}
-.connection input{
-    margin : 10px;
 }

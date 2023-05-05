@@ -48,7 +48,7 @@ public class User extends Item{
   @Override
   public String toString() {
     return
-             Login + '\'' +
+             Login +
 
              " , "+CreationDate
             ;
