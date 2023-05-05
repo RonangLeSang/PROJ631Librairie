@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class User extends Item{
@@ -5,10 +7,10 @@ public class User extends Item{
   private String Password;
   private Date CreationDate;
 
-  public User(String login, String password, Date creationDate) {
-    this.Login = login;
-    this.Password = password;
-    this.CreationDate = creationDate;
+  public User(ResultSet result) throws SQLException {
+    this.Login = result.getString("login");
+    this.Password = result.getString("MDP");
+    this.CreationDate = result.getDate("date_creation");
   }
 
   // Getters and Setters

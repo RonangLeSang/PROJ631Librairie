@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Book extends Item{
@@ -12,17 +14,17 @@ public class Book extends Item{
   private String Summary;
   private String Language;
 
-  public Book(int id, String title, String author, String genre, String publisher, String image, Date date, int pageCount, String summary, String language) {
-    this.Id = id;
-    this.Title = title;
-    this.Author = author;
-    this.Genre = genre;
-    this.Publisher = publisher;
-    this.Image = image;
-    this.Date = date;
-    this.PageCount = pageCount;
-    this.Summary = summary;
-    this.Language = language;
+  public Book(ResultSet result) throws SQLException {
+    this.Id = result.getInt("id_livre");
+    this.Title = result.getString("titre");
+    this.Author= result.getString("auteur");
+    this.Genre = result.getString("genre");
+    this.Publisher = result.getString("editeur");
+    this.Image = result.getString("image");
+    this.Date = result.getDate("date");
+    this.PageCount = result.getInt("nb_page");
+    this.Summary = result.getString("resu");
+    this.Language = result.getString("langue");
   }
 
   // Getters and Setters
