@@ -29,6 +29,25 @@ public class ModelWindow {
         userList.add(new User("oui", "non", new Date()));
         userList.add(new User("oui", "non", new Date()));
 
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+
         setDisplay(2);
 
     }
@@ -41,16 +60,19 @@ public class ModelWindow {
         displayedPanel = new JPanel();
         switch(index){
             case 1:
+                System.out.println("1");
                 for(Book book: bookList){
                     displayedPanel.add(new BoxItem(book));
                 }
                 break;
             case 2:
+                System.out.println("2");
                 for(User user: userList){
                     displayedPanel.add(new BoxItem(user));
                 }
                 break;
             case 3:
+                System.out.println("3");
                 for(Advice advice: adviceList){
                     displayedPanel.add(new BoxItem(advice));
                 }

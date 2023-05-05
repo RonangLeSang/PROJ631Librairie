@@ -5,6 +5,7 @@ import java.util.Date;
 public class MainWindow extends JFrame {
 
     private ModelWindow modelWindow;
+    private JScrollPane scrollingArea;
 
     public MainWindow(ModelWindow modelWindow) {
         super("bibliothèque administrateur");
@@ -25,6 +26,10 @@ public class MainWindow extends JFrame {
         JButton adviceButton = new JButton("avis");
         JButton addButton = new JButton("ajouter");
 
+        bookButton.addActionListener(new ItemListener(this, 1));
+        userButton.addActionListener(new ItemListener(this, 2));
+        adviceButton.addActionListener(new ItemListener(this, 3));
+
         tabsPanel.add(userButton);
         tabsPanel.add(bookButton);
         tabsPanel.add(adviceButton);
@@ -35,31 +40,17 @@ public class MainWindow extends JFrame {
 
         setSize(720, 480);
 
-
-//        JPanel items = new JPanel();
-//        items.setLayout(new BoxLayout(items, BoxLayout.Y_AXIS));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-
-        JScrollPane scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
+        scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
         add(scrollingArea, BorderLayout.CENTER);
 
         setVisible(true);
+    }
+
+    public void setViewDisplay(int index){
+        remove(scrollingArea);
+        modelWindow.setDisplay(index);
+        scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
+        add(scrollingArea, BorderLayout.CENTER);
     }
 
 }

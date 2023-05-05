@@ -24,6 +24,16 @@ public class Advice extends Item{
         this.nameBook=result.getString("");
     }
 
+    public Advice(int idBook, int idUser, Date date, int star, String comment, String nameBook, String nameUser) {
+        this.idBook = idBook;
+        this.idUser = idUser;
+        this.date = date;
+        this.star = star;
+        this.comment = comment;
+        this.nameBook = nameBook;
+        this.nameUser = nameUser;
+    }
+
     @Override
     public String toString() {
         return
