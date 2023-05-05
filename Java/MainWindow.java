@@ -1,12 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
 
 public class MainWindow extends JFrame {
 
-//    private ModelWindow modelWindow;
+    private ModelWindow modelWindow;
 
-    public MainWindow() {
+    public MainWindow(ModelWindow modelWindow) {
         super("bibliothèque administrateur");
+
+        this.modelWindow = modelWindow;
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.setLayout(new BorderLayout());
@@ -31,15 +35,31 @@ public class MainWindow extends JFrame {
 
         setSize(720, 480);
 
-        DefaultListModel<String> model = new DefaultListModel<>();
 
+//        JPanel items = new JPanel();
+//        items.setLayout(new BoxLayout(items, BoxLayout.Y_AXIS));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
+//        items.add(new BoxItem(new User("oui", "non", new Date())));
 
-
-//        JList items = new JList<>(model);
-        JList list = new JList(model);
-        JScrollPane scrollingArea = new JScrollPane(list);
+        JScrollPane scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
         add(scrollingArea, BorderLayout.CENTER);
 
         setVisible(true);
     }
+
 }
