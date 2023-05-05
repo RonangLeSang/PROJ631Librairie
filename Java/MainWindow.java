@@ -27,53 +27,19 @@ public class MainWindow extends JFrame {
         addPanel.add(addButton);
         headPanel.add(tabsPanel, BorderLayout.WEST);
         headPanel.add(addPanel, BorderLayout.EAST);
-        this.add(headPanel, BorderLayout.NORTH);
+        add(headPanel, BorderLayout.NORTH);
 
-        setSize(720,480);
-        setVisible(true);
+        setSize(720, 480);
 
         DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
-//        model.addElement("1");
 
-        JList items = new JList<>(model);
 
-//        add(items);
 
-        JScrollPane scrollingArea = new JScrollPane();
-        scrollingArea.setViewportView(items);
-        items.setLayoutOrientation(JList.VERTICAL);
+//        JList items = new JList<>(model);
+        JList list = new JList(model);
+        JScrollPane scrollingArea = new JScrollPane(list);
+        add(scrollingArea, BorderLayout.CENTER);
 
-        this.add(scrollingArea, BorderLayout.SOUTH);
+        setVisible(true);
     }
 }

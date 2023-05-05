@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Book {
+public class Book extends Item{
   private int Id;
   private String Title;
   private String Author;
