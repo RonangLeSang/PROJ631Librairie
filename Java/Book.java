@@ -107,4 +107,20 @@ public class Book extends Item{
   public void setLanguage(String language) {
     this.Language = language;
   }
+
+  @Override
+  public String toString() {
+    return
+
+             Title + '\'' +
+            ", By" + Author + '\'' +
+            ", " + Genre + '\'' +
+
+
+            ", " + Date +
+
+
+            ", '" + Language + '\''
+            ;
+  }
 }

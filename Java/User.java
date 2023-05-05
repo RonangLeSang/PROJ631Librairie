@@ -37,4 +37,13 @@ public class User extends Item{
   public void setCreationDate(Date creationDate) {
     this.CreationDate = creationDate;
   }
+
+  @Override
+  public String toString() {
+    return
+             Login + '\'' +
+
+             CreationDate
+            ;
+  }
 }

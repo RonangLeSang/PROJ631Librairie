@@ -19,5 +19,14 @@ public class Advice extends Item{
         this.comment=result.getString("commentaire");
     }
 
+    @Override
+    public String toString() {
+        return
+                "id livre : " + idBook +
+                ", id de l'utilisateur : " + idUser +
+                        date +
+                 ", "+ star + "étoiles"
 
+                ;
+    }
 }
