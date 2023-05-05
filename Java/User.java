@@ -13,6 +13,13 @@ public class User extends Item{
     this.CreationDate = result.getDate("date_creation");
   }
 
+  public User(String login, String password, Date date) {
+    super();
+    this.Login = login;
+    this.Password = password;
+    this.CreationDate = date;
+  }
+
   // Getters and Setters
   public String getLogin() {
     return Login;

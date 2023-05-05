@@ -22,6 +22,7 @@
 <html>
 <head>
 	<title>Ma Librairie</title>
+    <link rel="stylesheet" type="text/css" href="css/accueil.css">
 </head>
 <body>
 	<header>
