@@ -13,7 +13,7 @@ public class ModelWindow {
 
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
 
-        //TODO supprimer les exemples
+        //TODO supprimer les exemples \/ \/
 
         userList.add(new User("oui", "non", new Date()));
         userList.add(new User("oui", "non", new Date()));
@@ -47,6 +47,30 @@ public class ModelWindow {
         adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
         adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
         adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
+
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
+
+        //TODO supprimer les exemples /\ /\
 
         setDisplay(2);
 
@@ -60,19 +84,16 @@ public class ModelWindow {
         displayedPanel = new JPanel();
         switch(index){
             case 1:
-                System.out.println("1");
                 for(Book book: bookList){
                     displayedPanel.add(new BoxItem(book));
                 }
                 break;
             case 2:
-                System.out.println("2");
                 for(User user: userList){
                     displayedPanel.add(new BoxItem(user));
                 }
                 break;
             case 3:
-                System.out.println("3");
                 for(Advice advice: adviceList){
                     displayedPanel.add(new BoxItem(advice));
                 }

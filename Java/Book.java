@@ -27,6 +27,19 @@ public class Book extends Item{
     this.Language = result.getString("langue");
   }
 
+  public Book(int id, String title, String author, String genre, String publisher, String image, java.util.Date date, int pageCount, String summary, String language) {
+    Id = id;
+    Title = title;
+    Author = author;
+    Genre = genre;
+    Publisher = publisher;
+    Image = image;
+    Date = date;
+    PageCount = pageCount;
+    Summary = summary;
+    Language = language;
+  }
+
   // Getters and Setters
   public int getId() {
     return Id;
