@@ -7,7 +7,8 @@ public class ModelWindow {
     private ArrayList<Book> bookList = new ArrayList<Book>();
     private ArrayList<User> userList = new ArrayList<User>();
     private ArrayList<Advice> adviceList = new ArrayList<Advice>();
-    private JPanel displayedPanel = new JPanel();;
+    private JPanel displayedPanel = new JPanel();
+    private int tab = 1;
 
     public ModelWindow(){
 
@@ -72,8 +73,16 @@ public class ModelWindow {
 
         //TODO supprimer les exemples /\ /\
 
-        setDisplay(2);
+        setDisplay(1);
 
+    }
+
+    public void setTab(int tab){
+        this.tab = tab;
+    }
+
+    public int getTab() {
+        return tab;
     }
 
     public JPanel getDisplayedPanel() {
@@ -84,13 +93,13 @@ public class ModelWindow {
         displayedPanel = new JPanel();
         switch(index){
             case 1:
-                for(Book book: bookList){
-                    displayedPanel.add(new BoxItem(book));
+                for(User user: userList){
+                    displayedPanel.add(new BoxItem(user));
                 }
                 break;
             case 2:
-                for(User user: userList){
-                    displayedPanel.add(new BoxItem(user));
+                for(Book book: bookList){
+                    displayedPanel.add(new BoxItem(book));
                 }
                 break;
             case 3:

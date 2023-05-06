@@ -25,9 +25,10 @@ public class MainWindow extends JFrame {
         tabsPanel.setLayout(new FlowLayout());
         headPanel.setLayout(new BorderLayout());
 
-        bookButton.addActionListener(new ItemListener(this, 1, bookButton));
-        userButton.addActionListener(new ItemListener(this, 2, userButton));
-        adviceButton.addActionListener(new ItemListener(this, 3, adviceButton));
+        addButton.addActionListener(new AddButtonListener(modelWindow));
+        userButton.addActionListener(new ItemListener(this, 1, userButton, modelWindow));
+        bookButton.addActionListener(new ItemListener(this, 2, bookButton, modelWindow));
+        adviceButton.addActionListener(new ItemListener(this, 3, adviceButton, modelWindow));
 
         userButton.setBackground(Color.GRAY);
 
