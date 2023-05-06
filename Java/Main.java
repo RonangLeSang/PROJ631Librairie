@@ -4,5 +4,5 @@ public class Main {
 
         ModelWindow modelWindow = new ModelWindow();
         MainWindow window = new MainWindow(modelWindow);
-    }//
+    }
 }

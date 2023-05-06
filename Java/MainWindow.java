@@ -51,6 +51,7 @@ public class MainWindow extends JFrame {
         modelWindow.setDisplay(index);
         scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
         add(scrollingArea, BorderLayout.CENTER);
+        revalidate();
     }
 
 }
