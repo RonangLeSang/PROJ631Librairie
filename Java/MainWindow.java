@@ -6,6 +6,10 @@ public class MainWindow extends JFrame {
 
     private ModelWindow modelWindow;
     private JScrollPane scrollingArea;
+    private JButton userButton = new JButton("utilisateurs");
+    private JButton bookButton = new JButton("livres");
+    private JButton adviceButton = new JButton("avis");
+    private JButton addButton = new JButton("ajouter");
 
     public MainWindow(ModelWindow modelWindow) {
         super("bibliothèque administrateur");
@@ -21,14 +25,11 @@ public class MainWindow extends JFrame {
         tabsPanel.setLayout(new FlowLayout());
         headPanel.setLayout(new BorderLayout());
 
-        JButton userButton = new JButton("utilisateurs");
-        JButton bookButton = new JButton("livres");
-        JButton adviceButton = new JButton("avis");
-        JButton addButton = new JButton("ajouter");
+        bookButton.addActionListener(new ItemListener(this, 1, bookButton));
+        userButton.addActionListener(new ItemListener(this, 2, userButton));
+        adviceButton.addActionListener(new ItemListener(this, 3, adviceButton));
 
-        bookButton.addActionListener(new ItemListener(this, 1));
-        userButton.addActionListener(new ItemListener(this, 2));
-        adviceButton.addActionListener(new ItemListener(this, 3));
+        userButton.setBackground(Color.GRAY);
 
         tabsPanel.add(userButton);
         tabsPanel.add(bookButton);
@@ -52,6 +53,12 @@ public class MainWindow extends JFrame {
         scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
         add(scrollingArea, BorderLayout.CENTER);
         revalidate();
+    }
+
+    public void resetButtonsDisplay(){
+        bookButton.setBackground(null);
+        userButton.setBackground(null);
+        adviceButton.setBackground(null);
     }
 
 }
