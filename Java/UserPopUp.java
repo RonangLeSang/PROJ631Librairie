@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 public class UserPopUp extends PopUp {
 
-    public static void displayFields() {
+    public void displayFields() {
 
         JTextField login = new JTextField(10);
         JTextField passeword = new JTextField(10);
