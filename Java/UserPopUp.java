@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public abstract class UserPopUp extends PopUp {
+public class UserPopUp extends PopUp {
 
     public void displayFields() {
 
@@ -59,5 +59,10 @@ public abstract class UserPopUp extends PopUp {
              }
 
         }
+    }
+
+    @Override
+    public String[] getFields() {
+        return new String[0];
     }
 }

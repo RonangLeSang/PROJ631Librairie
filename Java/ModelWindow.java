@@ -148,7 +148,7 @@ public class ModelWindow {
         this.adviceList = adviceList;
     }
 
-    public void addItem(String request) throws SQLException {
+    public void executeRequest(String request) throws SQLException {
         Statement stmt = connection.createStatement();
         stmt.executeQuery(request);
     }

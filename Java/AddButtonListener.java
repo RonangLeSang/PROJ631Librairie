@@ -18,7 +18,7 @@ public class AddButtonListener implements ActionListener{
                 String[] userFields = userPopUp.getFields();
                 User user = new User(userFields[0], userFields[3], java.sql.Date.valueOf(userFields[2]));
                 try {
-                    modelWindow.addItem(user.toSQL());
+                    modelWindow.executeRequest(user.toSQL());
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -31,7 +31,7 @@ public class AddButtonListener implements ActionListener{
                         bookFields[4], bookFields[5], java.sql.Date.valueOf(bookFields[6]),
                         Integer.parseInt(bookFields[7]), bookFields[8], bookFields[9]);
                 try {
-                    modelWindow.addItem(book.toSQL());
+                    modelWindow.executeRequest(book.toSQL());
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -44,7 +44,7 @@ public class AddButtonListener implements ActionListener{
                         java.sql.Date.valueOf(adviceFields[3]), Integer.parseInt(adviceFields[4]), adviceFields[5],
                         adviceFields[6], adviceFields[7]);
                 try {
-                    modelWindow.addItem(advice.toSQL());
+                    modelWindow.executeRequest(advice.toSQL());
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
