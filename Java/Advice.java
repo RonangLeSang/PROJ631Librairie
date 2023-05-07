@@ -49,4 +49,9 @@ public class Advice extends Item{
     public String toSQL() {
         return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ("+idBook+", "+idUser+", "+comment+", "+star+", "+date+")";
     }
+
+    @Override
+    public String suppressSelf() {
+        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login = "+idUser;
+    }
 }
