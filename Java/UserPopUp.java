@@ -10,7 +10,7 @@ public class UserPopUp extends PopUp{
         JPanel panel = new JPanel();
         panel.add(new JLabel("login :"));
         panel.add(login);
-        panel.add(new JLabel("MDP :"));
+        panel.add(new JLabel("MDP   :"));
         panel.add(passeword);
         return null;
 
