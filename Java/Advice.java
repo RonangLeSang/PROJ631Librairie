@@ -44,4 +44,9 @@ public class Advice extends Item{
 
                 ;
     }
+
+    @Override
+    public String toSQL() {
+        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ("+idBook+", "+idUser+", "+comment+", "+star+", "+date+")";
+    }
 }

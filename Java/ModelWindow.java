@@ -1,17 +1,21 @@
 import javax.swing.*;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.awt.EventQueue;
 
 public class ModelWindow {
 
+    private Connection connection;
     private ArrayList<Book> bookList = new ArrayList<Book>();
     private ArrayList<User> userList = new ArrayList<User>();
     private ArrayList<Advice> adviceList = new ArrayList<Advice>();
     private JPanel displayedPanel = new JPanel();
     private int tab = 1;
 
-    public ModelWindow(){
+    public ModelWindow(Connection connection){
 
+        this.connection = connection;
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
 
         //TODO supprimer les exemples \/ \/
@@ -109,6 +113,44 @@ public class ModelWindow {
                 break;
         }
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
+    }
+
+    public void refreshUser() throws SQLException {
+        ArrayList<User> userList = new ArrayList<User>();
+        Statement stmt = connection.createStatement();
+        ResultSet res = stmt.executeQuery("SELECT * FROM utilisateur");
+
+        while(res.next()){
+            userList.add(new User(res));
+        }
+        this.userList = userList;
+    }
+
+    public void refreshBook() throws SQLException {
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        Statement stmt = connection.createStatement();
+        ResultSet res = stmt.executeQuery("SELECT * FROM Livre");
+
+        while(res.next()){
+            bookList.add(new Book(res));
+        }
+        this.bookList = bookList;
+    }
+
+    public void refreshAdvice() throws SQLException {
+        ArrayList<Advice> adviceList = new ArrayList<Advice>();
+        Statement stmt = connection.createStatement();
+        ResultSet res = stmt.executeQuery("SELECT * FROM Avis");
+
+        while(res.next()){
+            adviceList.add(new Advice(res));
+        }
+        this.adviceList = adviceList;
+    }
+
+    public void addItem(String request) throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.executeQuery(request);
     }
 
 }

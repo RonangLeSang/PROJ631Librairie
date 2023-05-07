@@ -3,54 +3,59 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class User extends Item{
-  private String Login;
-  private String Password;
-  private Date CreationDate;
+  private String login;
+  private String password;
+  private Date creationDate;
 
   public User(ResultSet result) throws SQLException {
-    this.Login = result.getString("login");
-    this.Password = result.getString("MDP");
-    this.CreationDate = result.getDate("date_creation");
+    this.login = result.getString("login");
+    this.password = result.getString("MDP");
+    this.creationDate = result.getDate("date_creation");
   }
 
   public User(String login, String password, Date date) {
     super();
-    this.Login = login;
-    this.Password = password;
-    this.CreationDate = date;
+    this.login = login;
+    this.password = password;
+    this.creationDate = date;
   }
 
   // Getters and Setters
   public String getLogin() {
-    return Login;
+    return login;
   }
 
   public void setLogin(String login) {
-    this.Login = login;
+    this.login = login;
   }
 
   public String getPassword() {
-    return Password;
+    return password;
   }
 
   public void setPassword(String password) {
-    this.Password = password;
+    this.password = password;
   }
 
   public Date getCreationDate() {
-    return CreationDate;
+    return creationDate;
   }
 
   public void setCreationDate(Date creationDate) {
-    this.CreationDate = creationDate;
+    this.creationDate = creationDate;
   }
 
   @Override
   public String toString() {
     return
-             Login +
+             login +
 
-             " , "+CreationDate
+             " , "+creationDate
             ;
+  }
+
+  @Override
+  public String toSQL() {
+    return "INSERT INTO utilisateur (`login`, `MDP`, `date_creation`) VALUES ("+login+", "+password+", "+creationDate+")";
   }
 }

@@ -16,4 +16,8 @@ public class UserPopUp extends PopUp{
 
     }
 
+    @Override
+    public String[] getFields() {
+        return new String[0];
+    }
 }
