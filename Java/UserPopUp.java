@@ -36,7 +36,7 @@ public class UserPopUp extends PopUp {
             String passewordText = passeword.getText();
             Date selectedDate = (Date) dateModel.getValue();
 
-            String url = "jdbc:mysql://localhost:3306/mydatabase";
+            String url = "tp-epua:3308";
             String user = "tafarou";
             String password = "rt45y8at";
             try {
