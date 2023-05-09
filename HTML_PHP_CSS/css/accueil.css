@@ -13,3 +13,9 @@ h1{
     padding: 20px;
 
 }
+.recent_books{
+    display: inline-block;
+    margin: 5px;
+    background-color: aquamarine;
+}
+
