@@ -98,17 +98,17 @@ public class ModelWindow {
         switch(index){
             case 1:
                 for(User user: userList){
-                    displayedPanel.add(new BoxItem(user));
+                    displayedPanel.add(new BoxItem(user, this));
                 }
                 break;
             case 2:
                 for(Book book: bookList){
-                    displayedPanel.add(new BoxItem(book));
+                    displayedPanel.add(new BoxItem(book, this));
                 }
                 break;
             case 3:
                 for(Advice advice: adviceList){
-                    displayedPanel.add(new BoxItem(advice));
+                    displayedPanel.add(new BoxItem(advice, this));
                 }
                 break;
         }

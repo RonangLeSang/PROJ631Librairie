@@ -58,4 +58,9 @@ public class User extends Item{
   public String toSQL() {
     return "INSERT INTO utilisateur (`login`, `MDP`, `date_creation`) VALUES ("+login+", "+password+", "+creationDate+")";
   }
+
+  @Override
+  public String suppressSelf() {
+    return "DELETE FROM Avis WHERE login = "+login;
+  }
 }
