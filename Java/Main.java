@@ -1,5 +1,5 @@
 import java.awt.*;
-import com.mysql.jdbc.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
