@@ -86,6 +86,10 @@ nav {
     margin-right: 30px;
 }
 
+.sign-btns form{
+    display: inline-block;
+}
+
 .sign-btns button{
     font-family: 'EB Garamond', serif;
     font-size: 16px;
@@ -95,10 +99,11 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    text-align: center;
     background-color: brown;
     color: whitesmoke;
+    
 }
-
 
 
 .all-books{
