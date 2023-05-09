@@ -5,6 +5,11 @@ import java.util.Date;
 public class MainWindow extends JFrame {
 
     private ModelWindow modelWindow;
+    private JScrollPane scrollingArea;
+    private JButton userButton = new JButton("utilisateurs");
+    private JButton bookButton = new JButton("livres");
+    private JButton adviceButton = new JButton("avis");
+    private JButton addButton = new JButton("ajouter");
 
     public MainWindow(ModelWindow modelWindow) {
         super("bibliothèque administrateur");
@@ -20,10 +25,12 @@ public class MainWindow extends JFrame {
         tabsPanel.setLayout(new FlowLayout());
         headPanel.setLayout(new BorderLayout());
 
-        JButton userButton = new JButton("utilisateurs");
-        JButton bookButton = new JButton("livres");
-        JButton adviceButton = new JButton("avis");
-        JButton addButton = new JButton("ajouter");
+        addButton.addActionListener(new AddButtonListener(modelWindow));
+        userButton.addActionListener(new ItemListener(this, 1, userButton, modelWindow));
+        bookButton.addActionListener(new ItemListener(this, 2, bookButton, modelWindow));
+        adviceButton.addActionListener(new ItemListener(this, 3, adviceButton, modelWindow));
+
+        userButton.setBackground(Color.GRAY);
 
         tabsPanel.add(userButton);
         tabsPanel.add(bookButton);
@@ -35,31 +42,24 @@ public class MainWindow extends JFrame {
 
         setSize(720, 480);
 
-
-//        JPanel items = new JPanel();
-//        items.setLayout(new BoxLayout(items, BoxLayout.Y_AXIS));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-//        items.add(new BoxItem(new User("oui", "non", new Date())));
-
-        JScrollPane scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
+        scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
         add(scrollingArea, BorderLayout.CENTER);
 
         setVisible(true);
+    }
+
+    public void setViewDisplay(int index){
+        remove(scrollingArea);
+        modelWindow.setDisplay(index);
+        scrollingArea = new JScrollPane(modelWindow.getDisplayedPanel());
+        add(scrollingArea, BorderLayout.CENTER);
+        revalidate();
+    }
+
+    public void resetButtonsDisplay(){
+        bookButton.setBackground(null);
+        userButton.setBackground(null);
+        adviceButton.setBackground(null);
     }
 
 }

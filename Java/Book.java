@@ -3,124 +3,147 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Book extends Item{
-  private int Id;
-  private String Title;
-  private String Author;
-  private String Genre;
-  private String Publisher;
-  private String Image;
-  private Date Date;
-  private int PageCount;
-  private String Summary;
-  private String Language;
+  private int id;
+  private String title;
+  private String author;
+  private String genre;
+  private String publisher;
+  private String image;
+  private Date date;
+  private int pageCount;
+  private String summary;
+  private String language;
 
   public Book(ResultSet result) throws SQLException {
-    this.Id = result.getInt("id_livre");
-    this.Title = result.getString("titre");
-    this.Author= result.getString("auteur");
-    this.Genre = result.getString("genre");
-    this.Publisher = result.getString("editeur");
-    this.Image = result.getString("image");
-    this.Date = result.getDate("date");
-    this.PageCount = result.getInt("nb_page");
-    this.Summary = result.getString("resu");
-    this.Language = result.getString("langue");
+    this.id = result.getInt("id_livre");
+    this.title = result.getString("titre");
+    this.author= result.getString("auteur");
+    this.genre = result.getString("genre");
+    this.publisher = result.getString("editeur");
+    this.image = result.getString("image");
+    this.date = result.getDate("date");
+    this.pageCount = result.getInt("nb_page");
+    this.summary = result.getString("resu");
+    this.language = result.getString("langue");
+  }
+
+  public Book(int id, String title, String author, String genre, String publisher, String image, java.util.Date date, int pageCount, String summary, String language) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.publisher = publisher;
+    this.image = image;
+    this.date = date;
+    this.pageCount = pageCount;
+    this.summary = summary;
+    this.language = language;
   }
 
   // Getters and Setters
   public int getId() {
-    return Id;
+    return id;
   }
 
   public void setId(int id) {
-    this.Id = id;
+    this.id = id;
   }
 
   public String getTitle() {
-    return Title;
+    return title;
   }
 
   public void setTitle(String title) {
-    this.Title = title;
+    this.title = title;
   }
 
   public String getAuthor() {
-    return Author;
+    return author;
   }
 
   public void setAuthor(String author) {
-    this.Author = author;
+    this.author = author;
   }
 
   public String getGenre() {
-    return Genre;
+    return genre;
   }
 
   public void setGenre(String genre) {
-    this.Genre = genre;
+    this.genre = genre;
   }
 
   public String getPublisher() {
-    return Publisher;
+    return publisher;
   }
 
   public void setPublisher(String publisher) {
-    this.Publisher = publisher;
+    this.publisher = publisher;
   }
 
   public String getImage() {
-    return Image;
+    return image;
   }
 
   public void setImage(String image) {
-    this.Image = image;
+    this.image = image;
   }
 
   public Date getDate() {
-    return Date;
+    return date;
   }
 
   public void setDate(Date date) {
-    this.Date = date;
+    this.date = date;
   }
 
   public int getPageCount() {
-    return PageCount;
+    return pageCount;
   }
 
   public void setPageCount(int pageCount) {
-    this.PageCount = pageCount;
+    this.pageCount = pageCount;
   }
 
   public String getSummary() {
-    return Summary;
+    return summary;
   }
 
   public void setSummary(String summary) {
-    this.Summary = summary;
+    this.summary = summary;
   }
 
   public String getLanguage() {
-    return Language;
+    return language;
   }
 
   public void setLanguage(String language) {
-    this.Language = language;
+    this.language = language;
   }
 
   @Override
   public String toString() {
     return
 
-             Title + '\'' +
-            ", By" + Author + '\'' +
-            ", " + Genre + '\'' +
+             title + '\'' +
+            ", By" + author + '\'' +
+            ", " + genre + '\'' +
 
 
-            ", " + Date +
+            ", " + date +
 
 
-            ", '" + Language + '\''
+            ", '" + language + '\''
             ;
+  }
+
+  @Override
+  public String toSQL() {
+    return "INSERT INTO `Livre` (`id_livre`, `titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ("+id+", "+title+", "+author+", "+genre+", "+publisher+", "+image+", "+date+", "+pageCount+", "+summary+", "+language+")";
+  }
+
+  @Override
+  public String suppressSelf() {
+    return "DELETE FROM Avis WHERE id_livre = "+id;
   }
 }

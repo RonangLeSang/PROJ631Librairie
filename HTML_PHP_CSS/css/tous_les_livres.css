@@ -1,52 +1,130 @@
 body{
     background-color: #EBE7D4;
-    color: #AC7E3F;
+    color : brown;
     margin: 0;
+    font-family: 'EB Garamond', serif;
 }
 
 h1{
     display: flex;
     justify-content: center;
     border: 2px solid brown;
-    margin-top: 20px;
+    margin-top: 80px;
     margin-left : 20%;
     margin-right: 20%;
     padding: 20px;
 
 }
 
-header{
-    background-color: #FDF9E5;
-    height: 50px;
 
-}
 
-.connection{
-    background-color: #FDF9E5;
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
     display: flex;
-    justify-content: end;
     align-items: center;
-    
+    padding: 15px 25px;
+    background-color: #FDF9E5;
+    box-shadow: inset 0px -1px 0px #c5c5c6;
 }
-.connection input{
-display: inline-block;
-  background-color: brown;
-  border-radius: 10px;
-  border: 4px double #cccccc;
-  color: #eeeeee;
-  text-align: center;
-  font-size: 10px;
-  padding: 10px;
-  width: 100px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+
+.main-navlinks a{
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: brown;
+    display: inline-block;
+    position: relative;
 }
+
+.main-navlinks a::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: brown;
+    transition: transform 0.3s ease-out;
+}
+
+.main-navlinks a:hover::after{
+    transform: scaleX(1);
+}
+
+.genres-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #FDF9E5;
+    padding: 10px;
+    margin-top: 5px;
+    list-style: none; /* supprime les puces */
+}
+  
+
+.dropdown-container {
+    display: inline-block;
+    position: relative;
+  }
+
+.dropdown-container:hover .genres-dropdown {
+    display: block;
+}
+
+
+  
+ 
+
+
+
+.nav-auth{
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.sign-btns button{
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    min-width: 90px;
+    padding: 10px 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: brown;
+    color: whitesmoke;
+}
+
+
 
 .all-books{
     display: inline-block;
-    margin: 5px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+ 
 }
+
+
+
+.all-books:hover{
+    transform: scale(1.5);
+}
+
+
+
+
+.all-books span{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    color: brown;
+}
+
