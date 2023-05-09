@@ -25,6 +25,37 @@
     <link rel="stylesheet" type="text/css" href="css/accueil.css">
 </head>
 <body>
+    <nav>
+        <div class="main-navlinks">
+            <a href="accueil.php" class="">Accueil</a> 
+            <div class="dropdown-container">
+                <a href="#">Genres</a>
+                <ul class="genres-dropdown">
+                    <?php
+                        $sql = "select distinct genre from Livre";
+                        $result = mysqli_query($conn,$sql);
+                        while($ligne = mysqli_fetch_assoc($result)){
+                            $genre = $ligne['genre'];
+                            echo "<li><a href='#'>$genre</a></li>";
+                        }
+
+                    ?>
+                    
+                </ul>
+            </div>
+            <a href="#">Mes favoris</a>
+        </div>
+        <div class="nav-auth">
+            <div class="sign-btns">
+                <button type="button">Se connecter</button>
+                <button type="button">S'inscrire</button>
+            </div>
+        </div>
+        </nav>
+        
+        
+
+     <!--</nav>
 	<header>
 		<h1>Ma Librairie</h1>
 		<nav>
@@ -36,43 +67,52 @@
 				<li><a href="#" id="login-link">Connexion</a></li>
 			</ul>
 		</nav>
-	</header>
-    <h2>filtrer par genre</h2>
-        <div class="genre">
-        <?php
-        $sql1 = "SELECT DISTINCT genre FROM Livre";
-        $result1 = mysqli_query($conn, $sql1);
-
-        //if (mysqli_num_rows($result) > 0) {
-            echo "<h2>Genres</h2>";
-            echo "<ul>";
-            while ($row = mysqli_fetch_assoc($result1)) {
-                $genre = $row["genre"];
-                echo "<li><a href='livres.php?genre=" . urlencode($genre) . "'>$genre</a></li>";
-            }
-        echo "</ul>";
-        //}
-        ?>
- 
-        </div>
+	</header>-->
+    
 
     <h2>Derniers livres sortis</h2>
         <div class="books">
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "select titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 5 DAY)";
+            $sql = "select titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
             $result = mysqli_query($conn, $sql);
 
             while($ligne = mysqli_fetch_assoc($result)){
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
-                echo "<div>";
-                   echo "<img src='$url_image' alt='image du livre' height='150'><br>";
-                   echo "<span>$nom_livre</span>";
+                echo "<a href=#>";   
+                    echo "<div class='derniers-livres'>";
+                    echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                    echo "<span>$nom_livre</span>";
 
-                echo "</div>";
+                    echo "</div>";
+                echo "</a>";
             }
+
+
+        ?>
+        <h2>Les coups de coeur</h2>
+        <div class="love">
+        <?php
+            $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
+            mysqli_select_db($conn, "tafarou");
+            $sql = "SELECT titre,image ,Coeur.commentaire from Livre join Coeur on Livre.id_livre=Coeur.id_livre ";
+            $result = mysqli_query($conn, $sql);
+
+            while($ligne = mysqli_fetch_assoc($result)){
+                $nom_livre = $ligne['titre'];
+                $url_image = $ligne['image'];
+                $url_commentaire = $ligne['commentaire'];
+                echo "<a href=#>";   
+                    echo "<div class='aimeParNous'>";
+                    echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                    echo "<span>$nom_livre</span>";
+                    echo "<div> $url_commentaire</div>";
+                    echo "</div>";
+                echo "</a>";
+            }
+
 
         ?>
 
