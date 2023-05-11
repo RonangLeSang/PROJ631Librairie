@@ -75,13 +75,15 @@
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "select titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
+            $sql = "select id_livre, titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
             $result = mysqli_query($conn, $sql);
 
             while($ligne = mysqli_fetch_assoc($result)){
+                $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
-                echo "<a href=#>";   
+                
+                echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
                     echo "<div class='derniers-livres'>";
                     echo "<img src='$url_image' alt='image du livre' height='150'><br>";
                     echo "<span>$nom_livre</span>";
