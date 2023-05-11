@@ -20,13 +20,14 @@ h1{
 }
 .derniers-livres{
     display: inline-block;
+    
     width: 200px;
     text-align: center;
     transition: transform 0.3s ease;
  
 }
 .derniers-livres:hover{
-    transform: scale(1.2);
+    transform: scale(0.8);
 }
 
 nav {
@@ -85,10 +86,41 @@ nav {
 .dropdown-container:hover .genres-dropdown {
     display: block;
 }
+.nav-auth{
+    margin-left: auto;
+    margin-right: 30px;
+}
 
+.sign-btns form{
+    display: inline-block;
+}
 
-  
- 
+.sign-btns button{
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    min-width: 90px;
+    padding: 10px 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    background-color: brown;
+    color: whitesmoke;
+    
+}
+
+.aimeParNous {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+
+}
+
+.aimeParNous:hover{
+    transform: scale(0.8);
+}
 
 
 

@@ -28,6 +28,7 @@
     <nav>
         <div class="main-navlinks">
             <a href="accueil.php" class="">Accueil</a> 
+            <a href="tous_les_livres.php" class="">Notre collection</a> 
             <div class="dropdown-container">
                 <a href="#">Genres</a>
                 <ul class="genres-dropdown">
@@ -46,9 +47,14 @@
             <a href="#">Mes favoris</a>
         </div>
         <div class="nav-auth">
-            <div class="sign-btns">
-                <button type="button">Se connecter</button>
-                <button type="button">S'inscrire</button>
+        <div class="sign-btns">
+                <form action="connection_page.php">
+                    <button type="submit">Se connecter</button>
+                </form>
+                <form action="inscription_page.php">
+                    <button type="submit">S'inscrire</button>
+                </form>
+                
             </div>
         </div>
         </nav>
@@ -75,13 +81,15 @@
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "select titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
+            $sql = "select id_livre, titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
             $result = mysqli_query($conn, $sql);
 
             while($ligne = mysqli_fetch_assoc($result)){
+                $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
-                echo "<a href=#>";   
+                
+                echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
                     echo "<div class='derniers-livres'>";
                     echo "<img src='$url_image' alt='image du livre' height='150'><br>";
                     echo "<span>$nom_livre</span>";
@@ -97,14 +105,15 @@
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "SELECT titre,image ,Coeur.commentaire from Livre join Coeur on Livre.id_livre=Coeur.id_livre ";
+            $sql = "SELECT Livre.id_livre,titre,image ,Coeur.commentaire from Livre join Coeur on Livre.id_livre=Coeur.id_livre ";
             $result = mysqli_query($conn, $sql);
 
             while($ligne = mysqli_fetch_assoc($result)){
+                $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
                 $url_commentaire = $ligne['commentaire'];
-                echo "<a href=#>";   
+                echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
                     echo "<div class='aimeParNous'>";
                     echo "<img src='$url_image' alt='image du livre' height='150'><br>";
                     echo "<span>$nom_livre</span>";
@@ -125,4 +134,4 @@
         </section>
     </main>
 </body>
-
+</html>
