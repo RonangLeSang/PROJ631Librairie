@@ -21,18 +21,16 @@ public class AdvicePopUp extends PopUp{
     private JPanel panelGlobal=new JPanel();
     public AdvicePopUp(ModelWindow modelWindow) {
         super(modelWindow);
-
+        GridLayout tableauAdvise=new GridLayout(4, 2);
         setSize(1000, 600);
 
         JButton valider=new JButton("valider");
         JButton annuler=new JButton("annuler");
 
         panelGlobal.setLayout(new BorderLayout());
-        login.setPreferredSize(new Dimension(200, 30));
-        idBook.setPreferredSize(new Dimension(200, 30));
-        comment.setPreferredSize(new Dimension(200, 30));
-        star.setPreferredSize(new Dimension(200, 30));
+
         JPanel panel = new JPanel();
+        panel.setLayout(tableauAdvise);
         panel.add(new JLabel("login :"));
         panel.add(login);
         panel.add(new JLabel("livre :"));

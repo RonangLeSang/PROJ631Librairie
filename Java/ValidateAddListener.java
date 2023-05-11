@@ -31,6 +31,7 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
+    public ValidateAddListener(JTextField idBook,JTextField title, JTextField author, JTextField genre JTextField)
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(type) {
