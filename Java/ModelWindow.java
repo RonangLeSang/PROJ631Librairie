@@ -12,71 +12,12 @@ public class ModelWindow {
     private ArrayList<Advice> adviceList = new ArrayList<Advice>();
     private JPanel displayedPanel = new JPanel();
     private int tab = 1;
+    private MainWindow window = null;
 
-    public ModelWindow(Connection connection){
+    public ModelWindow(Connection connection) throws SQLException {
 
         this.connection = connection;
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
-
-        //TODO supprimer les exemples \/ \/
-
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-        userList.add(new User("oui", "non", new Date()));
-
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-        adviceList.add(new Advice(3, 4, new java.sql.Date(2002, 2, 17), 4, "String comment", "String nameBook", "String nameUser"));
-
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-        bookList.add(new Book(1, "un livre", "author", "genre", "publisher", "image", new java.sql.Date(2002, 2, 17), 230, "summary", "language"));
-
-        //TODO supprimer les exemples /\ /\
-
         setDisplay(1);
 
     }
@@ -115,6 +56,13 @@ public class ModelWindow {
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
     }
 
+    public void refreshAll() throws SQLException {
+        refreshUser();
+        refreshAdvice();
+        refreshBook();
+        window.setViewDisplay(tab);
+    }
+
     public void refreshUser() throws SQLException {
         ArrayList<User> userList = new ArrayList<User>();
         Statement stmt = connection.createStatement();
@@ -149,8 +97,13 @@ public class ModelWindow {
     }
 
     public void executeRequest(String request) throws SQLException {
+        System.out.println(request);
         Statement stmt = connection.createStatement();
-        stmt.executeQuery(request);
+        stmt.executeUpdate(request);
+        refreshAll();
     }
 
+    public void setWindow(MainWindow window) {
+        this.window = window;
+    }
 }
