@@ -44,7 +44,7 @@ public class AdvicePopUp extends PopUp{
         panBouton.add(annuler);
         panBouton.add(valider);
 
-        valider.addActionListener(new ValidateAddListener(login, idBook,comment,star, modelWindow, 2, this));
+        valider.addActionListener(new ValidateAddListener(login, idBook,star,comment, modelWindow, 2, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);
         panelGlobal.add(panBouton,BorderLayout.SOUTH);
