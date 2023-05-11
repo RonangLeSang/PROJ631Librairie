@@ -44,6 +44,7 @@ public class ValidateAddListener implements ActionListener {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+
                 break;
 
             case 2:
@@ -57,6 +58,11 @@ public class ValidateAddListener implements ActionListener {
                 java.sql.Date sqlDateA = new java.sql.Date(utilDateA.getTime());
 
                 Advice advice=new Advice(idBookInt,sqlDateA,nbrStar,commentText,loginTextA);
+                try {
+                    modelWindow.executeRequest(advice.toSQL());
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
                 break;
 
             case 3:
