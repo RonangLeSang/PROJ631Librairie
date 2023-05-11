@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+import java.awt.*;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,9 +17,10 @@ public class UserPopUp extends PopUp implements ActionListener{
     private JTextField login =new JTextField();
     private JTextField passeword = new JTextField();
     private String sql;
+    private JPanel panBouton=new JPanel();
+    private JPanel panelGlobal=new JPanel();
 
-
-    public void displayFields(ModelWindow modelWindow) {
+    public UserPopUp(ModelWindow modelWindow) {
         super(modelWindow);
         setSize(1000, 600);
 
@@ -26,7 +28,7 @@ public class UserPopUp extends PopUp implements ActionListener{
         JButton annuler=new JButton("annuler");
         JTextField login = new JTextField(10);
         JTextField passeword = new JTextField(10);
-
+        panelGlobal.setLayout(new BorderLayout());
 
         JPanel panel = new JPanel();
         panel.add(new JLabel("login :"));
@@ -39,7 +41,11 @@ public class UserPopUp extends PopUp implements ActionListener{
 
         annuler.addActionListener(this);
         annuler.setActionCommand("annuler");
-
+        panBouton.add(annuler);
+        panBouton.add(valider);
+        panelGlobal.add(panel,BorderLayout.CENTER);
+        panelGlobal.add(panBouton,BorderLayout.SOUTH);
+        this.setContentPane(panelGlobal);
         this.setVisible(true);
 
     }

@@ -1,10 +1,10 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
-public abstract class PopUp extends JOptionPane {
+public abstract class PopUp extends JFrame {
 
     private ModelWindow modelWindow;
 
-    public void PopUp(ModelWindow modelWindow){
+    public PopUp(ModelWindow modelWindow){
         this.modelWindow = modelWindow;
     }
 

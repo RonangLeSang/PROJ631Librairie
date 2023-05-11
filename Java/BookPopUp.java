@@ -1,6 +1,7 @@
 public class BookPopUp extends PopUp{
-    @Override
-    public String[] getFields() {
-        return new String[0];
+    public BookPopUp(ModelWindow modelWindow) {
+        super(modelWindow);
     }
+
+
 }
