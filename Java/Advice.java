@@ -52,6 +52,6 @@ public class Advice extends Item{
 
     @Override
     public String suppressSelf() {
-        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login LIKE '"+nameUser+"'";
+        return "DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'";
     }
 }
