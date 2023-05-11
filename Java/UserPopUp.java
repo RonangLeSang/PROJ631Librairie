@@ -56,8 +56,9 @@ public class UserPopUp extends PopUp implements ActionListener{
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             User user=new User(loginText,passewordText,sqlDate);
+            ModelWindow window = this.modelWindow;
             try {
-                modelWindow.executeRequest(user.toSQL());
+                window.executeRequest(user.toSQL());
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
