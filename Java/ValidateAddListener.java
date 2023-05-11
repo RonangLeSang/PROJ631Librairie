@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class ValidateAddListener implements ActionListener {
@@ -14,6 +15,18 @@ public class ValidateAddListener implements ActionListener {
     private  JTextField comment;
     private JTextField loginA;
     private PopUp popUp;
+    private JTextField idBookB;
+    private JTextField title;
+    private JTextField author;
+    private JTextField genre;
+    private JTextField publisher;
+    private JTextField image;
+    private JTextField date;
+    private JTextField pageCount;
+    private JTextField summary;
+    private JTextField language;
+
+
 
     public ValidateAddListener(JTextField login, JTextField passeword, ModelWindow modelWindow, int type,PopUp popUp) {
         this.login = login;
@@ -31,7 +44,21 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
-    public ValidateAddListener(JTextField idBook,JTextField title, JTextField author, JTextField genre JTextField)
+    public ValidateAddListener(JTextField idBookB,JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField date, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
+        this.idBookB=idBookB;
+        this.title=title;
+        this.author=author;
+        this.genre=genre;
+        this.publisher=publisher;
+        this.image=image;
+        this.date=date;
+        this.pageCount=pageCount;
+        this.summary=summary;
+        this.language=language;
+        this.type=type;
+        this.popUp=popUp;
+        this.modelWindow=modelWindow;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(type) {
@@ -71,7 +98,27 @@ public class ValidateAddListener implements ActionListener {
                 break;
 
             case 3:
+                String idBookBText=idBookB.getText();
+                int idBookBInt=Integer.parseInt(idBookBText);
 
+                String titleText=title.getText();
+                String authorText=author.getText();
+                String genreText=genre.getText();
+                String publisherText=publisher.getText();
+                String imageText=image.getText();
+                Date dateText=new Date(1900,11,5);//a changer
+                String pageText=pageCount.getText();
+                int pageInt=Integer.parseInt(pageText);
+                String summaryText=summary.getText();
+                String languageText=language.getText();
+                Book book=new Book(idBookBInt,titleText,authorText,genreText,publisherText,imageText,dateText,pageInt,summaryText,languageText);
+
+                try {
+                    modelWindow.executeRequest(book.toSQL());
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                popUp.dispose();
                 break;
         }
     }

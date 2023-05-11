@@ -1,4 +1,4 @@
-mport javax.swing.*;
+import javax.swing.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,6 +56,7 @@ public class BookPopUp extends PopUp{
         panel.add(image);
 
         panel.add(new JLabel("date:"));
+
         panel.add(date);
 
         panel.add(new JLabel("nombre page:"));
