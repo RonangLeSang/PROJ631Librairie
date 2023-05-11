@@ -9,7 +9,9 @@
     <form action="register.php" method="POST">
         <input type="text" name="username" placeholder="Nom d'utilisateur" required>
         <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="confirm_password" placeholder="Mot de passe" required>
         <button type="submit">S'inscrire</button>
+        
     </form>
 </body>  
 </html>
