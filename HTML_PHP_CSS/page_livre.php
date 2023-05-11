@@ -4,7 +4,7 @@
     <head>
         <title>notre livre </title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="page_livre.css" />
+        <link rel="stylesheet" href="css/page_livre.css" />
     </head>
     <?php
         $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
@@ -45,13 +45,15 @@
     
     
         
-        <div class="book">
-        <?php
-            $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
-            mysqli_select_db($conn, "tafarou");
-            $sql = "select titre,auteur, image,resu from Livre where auteur = 'yassir'";
-            $result = mysqli_query($conn, $sql);
+        <section id="page-container">
 
+        </section>
+        <?php
+            
+            $getidlivre= $_GET['id_livre'];
+            $sql = "select titre,auteur, image,resu from Livre where id_livre=$getidlivre";
+            $result = mysqli_query($conn, $sql);
+            
             while($livre = mysqli_fetch_assoc($result)){
                 echo "<h1>" . $livre['titre'] . "</h1>";
                 echo "<h2>Par " . $livre['auteur'] . "</h2>";
@@ -75,7 +77,7 @@
             }
         ?>
 
-        </div>
+        
         
     </body>
 </html>

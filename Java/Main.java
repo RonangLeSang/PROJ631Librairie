@@ -26,8 +26,8 @@ public class Main {
 //                System.out.println("Erreur");
 //                System.exit(0);
 //            }
-//                // Le code à exécuter est à insérer ici.
-//
+                // Le code à exécuter est à insérer ici.
+
 //                ModelWindow modelWindow = new ModelWindow(conn);
 //                MainWindow window = new MainWindow(modelWindow);
 //            }

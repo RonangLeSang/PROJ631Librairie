@@ -2,6 +2,10 @@ import javax.swing.JOptionPane;
 
 public abstract class PopUp extends JOptionPane {
 
-    public abstract String[] getFields();
+    private ModelWindow modelWindow;
+
+    public void PopUp(ModelWindow modelWindow){
+        this.modelWindow = modelWindow;
+    }
 
 }

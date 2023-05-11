@@ -51,6 +51,7 @@
     <h1>Notre Sélection de livre</h1>
         
         <div class="books">
+            
             <?php
                 $sql = "select id_livre,titre, image from Livre";
                 $result = mysqli_query($conn, $sql);
@@ -59,7 +60,7 @@
                     $id_livre = $ligne["id_livre"];
                     $nom_livre = $ligne['titre'];
                     $url_image = $ligne['image'];
-                    echo "<a href=\"/page_livre.php?id_livre=$id_livre\">";
+                    echo "<a href=\"page_livre.php?id_livre=$id_livre\">";
                         echo "<div class='all-books'>";
                             echo "<img src='$url_image' alt='image du livre' height='150'><br>";
                             echo "<span>$nom_livre</span>";
