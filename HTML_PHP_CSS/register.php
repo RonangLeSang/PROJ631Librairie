@@ -2,6 +2,13 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+    // Vérifiez si les mots de passe correspondent
+    if ($password !== $confirmPassword) {
+        echo "Les mots de passe ne correspondent pas. Veuillez réessayer.";
+        exit();
+    }
 
     // Connectez-vous à votre base de données
     $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");

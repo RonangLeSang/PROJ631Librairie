@@ -33,7 +33,7 @@
                 <a href="#">Genres</a>
                 <ul class="genres-dropdown">
                     <?php
-                        $sql = "select distinct genre from Livre";
+                        $sql = "select distinct genre from livre";
                         $result = mysqli_query($conn,$sql);
                         while($ligne = mysqli_fetch_assoc($result)){
                             $genre = $ligne['genre'];
@@ -81,7 +81,7 @@
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "select id_livre, titre, image from Livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
+            $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
             $result = mysqli_query($conn, $sql);
 
             while($ligne = mysqli_fetch_assoc($result)){
@@ -105,10 +105,10 @@
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
-            $sql = "SELECT Livre.id_livre,titre,image ,Coeur.commentaire from Livre join Coeur on Livre.id_livre=Coeur.id_livre ";
-            $result = mysqli_query($conn, $sql);
+            $sql1 = "SELECT livre.id_livre,titre,image ,coeur.commentaire from livre join coeur on livre.id_livre=coeur.id_livre ";
+            $result1 = mysqli_query($conn, $sql1);
 
-            while($ligne = mysqli_fetch_assoc($result)){
+            while($ligne = mysqli_fetch_assoc($result1)){
                 $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
