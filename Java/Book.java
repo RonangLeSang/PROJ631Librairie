@@ -139,11 +139,11 @@ public class Book extends Item{
 
   @Override
   public String toSQL() {
-    return "INSERT INTO `Livre` (`id_livre`, `titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ("+id+", "+title+", "+author+", "+genre+", "+publisher+", "+image+", "+date+", "+pageCount+", "+summary+", "+language+")";
+    return "INSERT INTO `Livre` (`id_livre`, `titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+id+"', '"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')";
   }
 
   @Override
   public String suppressSelf() {
-    return "DELETE FROM Avis WHERE id_livre = "+id;
+    return "DELETE FROM Avis WHERE id_livre LIKE '"+id+"'";
   }
 }

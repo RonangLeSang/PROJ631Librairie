@@ -28,7 +28,10 @@ public class AdvicePopUp extends PopUp{
         JButton annuler=new JButton("annuler");
 
         panelGlobal.setLayout(new BorderLayout());
-
+        login.setMinimumSize(new Dimension(100, 20));
+        idBook.setMinimumSize(new Dimension(100, 20));
+        comment.setMinimumSize(new Dimension(100, 20));
+        star.setMinimumSize(new Dimension(100, 20));
         JPanel panel = new JPanel();
         panel.add(new JLabel("login :"));
         panel.add(login);
@@ -41,7 +44,7 @@ public class AdvicePopUp extends PopUp{
         panBouton.add(annuler);
         panBouton.add(valider);
 
-        valider.addActionListener(new ValidateAddListener(login, idBook,comment,star, modelWindow, 2));
+        valider.addActionListener(new ValidateAddListener(login, idBook,star,comment, modelWindow, 2, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);
         panelGlobal.add(panBouton,BorderLayout.SOUTH);
