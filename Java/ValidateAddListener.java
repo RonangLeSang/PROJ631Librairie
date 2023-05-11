@@ -44,7 +44,7 @@ public class ValidateAddListener implements ActionListener {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
+                modelWindow.getWindow().dispose();
                 break;
 
             case 2:
