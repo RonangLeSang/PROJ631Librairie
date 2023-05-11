@@ -16,7 +16,7 @@ h1{
 
 }
 
-
+/* Navbar */
 
 nav {
     position: fixed;
@@ -77,13 +77,17 @@ nav {
 
 
   
- 
+ /* Nav Bar */
 
 
 
 .nav-auth{
     margin-left: auto;
     margin-right: 30px;
+}
+
+.sign-btns form{
+    display: inline-block;
 }
 
 .sign-btns button{
@@ -95,10 +99,11 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    text-align: center;
     background-color: brown;
     color: whitesmoke;
+    
 }
-
 
 
 .all-books{
@@ -112,7 +117,7 @@ nav {
 
 
 .all-books:hover{
-    transform: scale(1.5);
+    transform: scale(0.8);
 }
 
 
