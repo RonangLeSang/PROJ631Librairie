@@ -106,4 +106,8 @@ public class ModelWindow {
     public void setWindow(MainWindow window) {
         this.window = window;
     }
+
+    public MainWindow getWindow(){
+        return window;
+    }
 }
