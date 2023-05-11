@@ -31,16 +31,6 @@ header{
 
 }
 
-.connection{
-    background-color: #FDF9E5;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    
-}
-.connection input{
-    margin : 10px;
-}
 
 nav {
     position: fixed;
@@ -121,33 +111,10 @@ nav {
 
 
 
-.all-books{
-    display: inline-block;
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s ease;
- 
+.book{
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
-.all-books:hover{
-    transform: scale(1.5);
-}
-
-
-
-
-.all-books span{
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    overflow-wrap: break-word;
-    text-transform: uppercase;
-    color: brown;
-}
-
 
 
 
