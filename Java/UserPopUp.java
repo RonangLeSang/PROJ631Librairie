@@ -48,4 +48,23 @@ public class UserPopUp extends PopUp{
 
     }
 
+    public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("valider")){
+            String loginText=login.getText();
+            String passewordText=passeword.getText();
+            java.util.Date utilDate = new java.util.Date();
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            User user=new User(loginText,passewordText,sqlDate);
+            ModelWindow window = this.modelWindow;
+            try {
+                window.executeRequest(user.toSQL());
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+
+        }
+
+        }
+
 }
