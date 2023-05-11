@@ -5,32 +5,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Advice extends Item{
-    private int idBook;
-    private int idUser;
+
+
     private Date date;
     private int star;
     private String comment;
-
     private String nameBook;
+    private int idBook;
     private String nameUser;
 
     public Advice(ResultSet result) throws SQLException {
-        this.idBook=result.getInt("id_livre");
-        this.idUser=result.getInt("login");
+
         this.date=result.getDate("date");
         this.star=result.getInt("etoiles");
         this.comment=result.getString("commentaire");
-        this.nameUser=result.getString("");
-        this.nameBook=result.getString("");
+        this.nameUser=result.getString("login");
+        this.idBook=result.getInt("id_livre");
+        this.nameBook="commane sql a faire ";
     }
 
-    public Advice(int idBook, int idUser, Date date, int star, String comment, String nameBook, String nameUser) {
+    public Advice(int idBook, Date date, int star, String comment, String nameUser) {
         this.idBook = idBook;
-        this.idUser = idUser;
+
         this.date = date;
         this.star = star;
         this.comment = comment;
-        this.nameBook = nameBook;
+
         this.nameUser = nameUser;
     }
 
@@ -47,11 +47,11 @@ public class Advice extends Item{
 
     @Override
     public String toSQL() {
-        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ("+idBook+", "+idUser+", "+comment+", "+star+", "+date+")";
+        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ("+idBook+", "+nameUser+", "+comment+", "+star+", "+date+")";
     }
 
     @Override
     public String suppressSelf() {
-        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login = "+idUser;
+        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login = "+nameUser;
     }
 }

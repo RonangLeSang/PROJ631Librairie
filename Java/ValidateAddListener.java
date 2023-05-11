@@ -9,6 +9,10 @@ public class ValidateAddListener implements ActionListener {
     private JTextField passeword;
     private ModelWindow modelWindow;
     private int type;
+    private JTextField star;
+    private JTextField idBook;
+    private  JTextField comment;
+    private JTextField loginA;
 
     public ValidateAddListener(JTextField login, JTextField passeword, ModelWindow modelWindow, int type) {
         this.login = login;
@@ -16,7 +20,14 @@ public class ValidateAddListener implements ActionListener {
         this.modelWindow = modelWindow;
         this.type = type;
     }
-
+    public ValidateAddListener(JTextField login, JTextField idBook,JTextField star,JTextField comment, ModelWindow modelWindow, int type) {
+        this.loginA = login;
+        this.star = star;
+        this.comment=comment;
+        this.idBook=idBook;
+        this.modelWindow = modelWindow;
+        this.type = type;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(type) {
@@ -36,7 +47,16 @@ public class ValidateAddListener implements ActionListener {
                 break;
 
             case 2:
+                String loginTextA=loginA.getText();
+                String starText=star.getText();
+                int nbrStar=Integer.parseInt(starText);
+                String commentText=comment.getText();
+                String idBookText=idBook.getText();
+                int idBookInt=Integer.parseInt(idBookText);
+                java.util.Date utilDateA = new java.util.Date();
+                java.sql.Date sqlDateA = new java.sql.Date(utilDateA.getTime());
 
+                Advice advice=new Advice(idBookInt,sqlDateA,nbrStar,commentText,loginTextA);
                 break;
 
             case 3:
