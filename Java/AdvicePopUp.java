@@ -28,10 +28,10 @@ public class AdvicePopUp extends PopUp{
         JButton annuler=new JButton("annuler");
 
         panelGlobal.setLayout(new BorderLayout());
-        login.setMinimumSize(new Dimension(100, 20));
-        idBook.setMinimumSize(new Dimension(100, 20));
-        comment.setMinimumSize(new Dimension(100, 20));
-        star.setMinimumSize(new Dimension(100, 20));
+        login.setPreferredSize(new Dimension(200, 30));
+        idBook.setPreferredSize(new Dimension(200, 30));
+        comment.setPreferredSize(new Dimension(200, 30));
+        star.setPreferredSize(new Dimension(200, 30));
         JPanel panel = new JPanel();
         panel.add(new JLabel("login :"));
         panel.add(login);
