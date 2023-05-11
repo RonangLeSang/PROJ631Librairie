@@ -13,20 +13,23 @@ public class ValidateAddListener implements ActionListener {
     private JTextField idBook;
     private  JTextField comment;
     private JTextField loginA;
+    private PopUp popUp;
 
-    public ValidateAddListener(JTextField login, JTextField passeword, ModelWindow modelWindow, int type) {
+    public ValidateAddListener(JTextField login, JTextField passeword, ModelWindow modelWindow, int type,PopUp popUp) {
         this.login = login;
         this.passeword = passeword;
         this.modelWindow = modelWindow;
         this.type = type;
+        this.popUp=popUp;
     }
-    public ValidateAddListener(JTextField login, JTextField idBook,JTextField star,JTextField comment, ModelWindow modelWindow, int type) {
+    public ValidateAddListener(JTextField login, JTextField idBook,JTextField star,JTextField comment, ModelWindow modelWindow, int type,PopUp popUp) {
         this.loginA = login;
         this.star = star;
         this.comment=comment;
         this.idBook=idBook;
         this.modelWindow = modelWindow;
         this.type = type;
+        this.popUp=popUp;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -44,7 +47,7 @@ public class ValidateAddListener implements ActionListener {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-                modelWindow.getWindow().dispose();
+                popUp.dispose();
                 break;
 
             case 2:
@@ -63,6 +66,7 @@ public class ValidateAddListener implements ActionListener {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+                popUp.dispose();
                 break;
 
             case 3:
