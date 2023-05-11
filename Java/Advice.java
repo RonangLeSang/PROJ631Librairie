@@ -47,11 +47,11 @@ public class Advice extends Item{
 
     @Override
     public String toSQL() {
-        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ("+idBook+", "+nameUser+", "+comment+", "+star+", "+date+")";
+        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')";
     }
 
     @Override
     public String suppressSelf() {
-        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login = "+nameUser;
+        return "DELETE FROM Avis WHERE id_livre = "+idBook+" and login LIKE '"+nameUser+"'";
     }
 }
