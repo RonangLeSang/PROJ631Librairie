@@ -1,120 +1,112 @@
-body{
-    background-color: #EBE7D4;
-    color: #AC7E3F;
-    margin: 0;
-    font-size: 25px;
+
+
+.book h1{
     
-}
-
-h1{
-    display: flex;
-    justify-content: center;
-    border: 2px solid brown;
-    margin-top: 10%;
-    margin-left : 20%;
-    margin-right: 20%;
-    padding: 20px;
     font-size: 60px;
+    text-transform: uppercase;
+    margin: 0;
 
 }
-img {
+
+.book h3{
+    margin: 0 ;
+}
+.book img {
     width: 200px;
     height: 300px;
+    margin-top: 10%;
   }
   
-
-header{
-    background-color: #FDF9E5;
-    height: 50px;
-    font-size: 40px;
-    justify-content: center;
-
-}
-
-
-nav {
-    position: fixed;
-    top:0;
-    width: 100%;
+.book {
+    margin-left: 10%;
     display: flex;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #FDF9E5;
-    box-shadow: inset 0px -1px 0px #c5c5c6;
 }
 
-.main-navlinks a{
-    margin: 0 10px;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    color: brown;
-    display: inline-block;
+.info-books{
+    margin-left: 10%;
+    margin-top: 10%;
+    
+    
+}
+/* Rating */
+
+
+.rating{
+    width:210px;
     position: relative;
-}
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+    line-height: 1; 
+    margin-left: 10%;
+ }
+ 
+ .rating span{
+     white-space: nowrap;
+     width: 100%;
+ }
+ 
+ .rating span.active{
+     position: absolute;
+     left: 0;
+     top:0;
+     overflow: hidden;
+     color: yellow;
+     width: 0;
+     transition: all 0.3s ease-out;
+ }
+   
+ .rating input{
+     position: absolute;
+     width:20%;
+     height: 100%;
+     z-index: 10;
+     opacity: 0;
+ }
+ 
+ .rating input:nth-child(1){left :0}
+ .rating input:checked:nth-child(1) ~ span.active{width: 20%;}
+ 
+ .rating input:nth-child(2){left :20%}
+ .rating input:checked:nth-child(2) ~ span.active{width: 40%;}
+ 
+ .rating input:nth-child(3){left :40%}
+ .rating input:checked:nth-child(3) ~ span.active{width: 60%;}
+ .rating input:nth-child(4){left :60%}
+ .rating input:checked:nth-child(4) ~ span.active{width: 80%;}
+ 
+ .rating input:nth-child(5){left :80%}
+ .rating input:checked:nth-child(5) ~ span.active{width: 100%;}
+ 
+ form input#comment{
+    height: 100px;
+    margin-left: 10%;
+    width: 210px;
+ }
 
-.main-navlinks a::after{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -3px;
-    width: 100%;
-    height: 1px;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: brown;
-    transition: transform 0.3s ease-out;
-}
-
-.main-navlinks a:hover::after{
-    transform: scaleX(1);
-}
-
-.genres-dropdown {
-    display: none;
-    position: absolute;
-    background-color: #FDF9E5;
-    padding: 10px;
+ form input#post{
+    width:100px;
     margin-top: 5px;
-    list-style: none; /* supprime les puces */
-}
-  
+    margin-left: 10%;
+ }
 
-.dropdown-container {
-    display: inline-block;
-    position: relative;
-  }
-
-.dropdown-container:hover .genres-dropdown {
-    display: block;
-}
+ form{
+    display: flex;
+    flex-direction: column;
+ }
 
 
-  
- .nav-auth{
-    margin-left: auto;
-    margin-right: 30px;
-}
 
-.sign-btns button{
-    font-family: 'EB Garamond', serif;
-    font-size: 16px;
-    min-width: 90px;
-    padding: 10px 5px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    background-color: brown;
-    color: whitesmoke;
+
+/* avis */
+.avis {
+    margin-left: 10%;
 }
 
 
 
-.book{
-    margin-left: auto;
-    margin-right: auto;
-}
+
+
 
 
 

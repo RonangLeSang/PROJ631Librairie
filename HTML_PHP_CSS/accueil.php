@@ -23,10 +23,16 @@
 <head>
 	<title>Ma Librairie</title>
     <link rel="stylesheet" type="text/css" href="css/accueil.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <div class="main-navlinks">
+            <span class="logo">BookTech</span>
             <a href="accueil.php" class="">Accueil</a> 
             <a href="tous_les_livres.php" class="">Notre collection</a> 
             <div class="dropdown-container">
@@ -45,9 +51,15 @@
                 </ul>
             </div>
             <a href="#">Mes favoris</a>
+            
+            <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
+        </div>
+        <div class="search-bar">
+                <input type="text" placeholder="Rechercher">
+                <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="nav-auth">
-        <div class="sign-btns">
+            <div class="sign-btns">
                 <form action="connection_page.php">
                     <button type="submit">Se connecter</button>
                 </form>
@@ -76,32 +88,35 @@
 	</header>-->
     
 
-    <h2>Derniers livres sortis</h2>
+   
         <div class="books">
-        <?php
-            $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
-            mysqli_select_db($conn, "tafarou");
-            $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
-            $result = mysqli_query($conn, $sql);
+            <div class="last-release">
+                <h2>Derniers livres sortis</h2>
+            <?php
+                $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
+                mysqli_select_db($conn, "tafarou");
+                $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
+                $result = mysqli_query($conn, $sql);
 
-            while($ligne = mysqli_fetch_assoc($result)){
-                $id_livre = $ligne['id_livre'];
-                $nom_livre = $ligne['titre'];
-                $url_image = $ligne['image'];
-                
-                echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
-                    echo "<div class='derniers-livres'>";
-                    echo "<img src='$url_image' alt='image du livre' height='150'><br>";
-                    echo "<span>$nom_livre</span>";
+                while($ligne = mysqli_fetch_assoc($result)){
+                    $id_livre = $ligne['id_livre'];
+                    $nom_livre = $ligne['titre'];
+                    $url_image = $ligne['image'];
+                    
+                    echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
+                        echo "<div class='derniers-livres'>";
+                        echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                        echo "<span class='info-livre'>$nom_livre</span>";
 
-                    echo "</div>";
-                echo "</a>";
-            }
+                        echo "</div>";
+                    echo "</a>";
+                }
 
 
-        ?>
-        <h2>Les coups de coeur</h2>
+            ?>
+            </div>
         <div class="love">
+            <h2>Les coups de coeur</h2>
         <?php
             $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
             mysqli_select_db($conn, "tafarou");
@@ -112,12 +127,10 @@
                 $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
-                $url_commentaire = $ligne['commentaire'];
                 echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
                     echo "<div class='aimeParNous'>";
                     echo "<img src='$url_image' alt='image du livre' height='150'><br>";
-                    echo "<span>$nom_livre</span>";
-                    echo "<div> $url_commentaire</div>";
+                    echo "<span class='info-livre'>$nom_livre</span>";
                     echo "</div>";
                 echo "</a>";
             }
@@ -126,12 +139,7 @@
         ?>
 
         </div>
-		<section>
-			<h2>Connexion</h2>
-			<!--<form method="post" action="connexion.php">
-				<label for="email">Email :</label>
-				<input type="email-->
-        </section>
-    </main>
+    </div>
+</main>
 </body>
 </html>

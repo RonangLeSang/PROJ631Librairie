@@ -1,18 +1,14 @@
-body{
-    background-color: #EBE7D4;
-    color: #AC7E3F;
-    margin: 0;
+
+.books{
+    margin-top: 5%;
 }
-h1{
-    display: flex;
-    justify-content: center;
-    border: 2px solid brown;
-    margin-top: 10%;
-    margin-left : 20%;
-    margin-right: 20%;
+
+h2{
+   
     padding: 20px;
 
 }
+
 .recent_books{
     display: inline-block;
     margin: 5px;
@@ -30,85 +26,7 @@ h1{
     transform: scale(0.8);
 }
 
-nav {
-    position: fixed;
-    top:0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #FDF9E5;
-    box-shadow: inset 0px -1px 0px #c5c5c6;
-}
 
-.main-navlinks a{
-    margin: 0 10px;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    color: brown;
-    display: inline-block;
-    position: relative;
-}
-
-.main-navlinks a::after{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -3px;
-    width: 100%;
-    height: 1px;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: brown;
-    transition: transform 0.3s ease-out;
-}
-
-.main-navlinks a:hover::after{
-    transform: scaleX(1);
-}
-
-.genres-dropdown {
-    display: none;
-    position: absolute;
-    background-color: #FDF9E5;
-    padding: 10px;
-    margin-top: 5px;
-    list-style: none; /* supprime les puces */
-}
-  
-
-.dropdown-container {
-    display: inline-block;
-    position: relative;
-  }
-
-.dropdown-container:hover .genres-dropdown {
-    display: block;
-}
-.nav-auth{
-    margin-left: auto;
-    margin-right: 30px;
-}
-
-.sign-btns form{
-    display: inline-block;
-}
-
-.sign-btns button{
-    font-family: 'EB Garamond', serif;
-    font-size: 16px;
-    min-width: 90px;
-    padding: 10px 5px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    background-color: brown;
-    color: whitesmoke;
-    
-}
 
 .aimeParNous {
     display: inline-block;
@@ -120,6 +38,17 @@ nav {
 
 .aimeParNous:hover{
     transform: scale(0.8);
+}
+
+
+span.info-livre{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    color: brown;
 }
 
 

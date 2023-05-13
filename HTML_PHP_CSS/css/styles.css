@@ -1,0 +1,139 @@
+body{
+    background-color: #F0F0F0;
+    color: #333333;
+    margin: 0;
+    font-family: 'EB Garamond', serif;
+}
+
+/* Nav Bar */
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #007BFF;
+    box-shadow: inset 0px -1px 0px #c5c5c6;
+}
+
+i.fa-book{
+    margin-right: 5px;
+}
+
+.logo{
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.main-navlinks a{
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #FFFFFF;
+    display: inline-block;
+    position: relative;
+}
+
+.main-navlinks a::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: #FFFFFF;
+    transition: transform 0.3s ease-out;
+}
+
+.main-navlinks a:hover::after{
+    transform: scaleX(1);
+}
+
+.genres-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-top: 5px;
+    list-style: none; /* supprime les puces */
+}
+  
+
+.dropdown-container {
+    display: inline-block;
+    position: relative;
+  }
+
+.dropdown-container:hover .genres-dropdown {
+    display: block;
+}
+
+.dropdown-container ul li a{
+    color: #333333;
+}
+
+.dropdown-container ul li a::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: #333333;
+    transition: transform 0.3s ease-out;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .search-bar input {
+    width: 300px;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  .search-bar i{
+    position: absolute;
+    bottom: 27px;
+    margin-left: 290px;
+
+  }
+
+
+  
+ .nav-auth{
+    margin-left: auto;
+    margin-right: 30px;
+    
+}
+
+.sign-btns{
+    display: flex;
+}
+
+.sign-btns button{
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    min-width: 90px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    
+}
