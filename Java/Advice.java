@@ -21,7 +21,7 @@ public class Advice extends Item{
         this.comment=result.getString("commentaire");
         this.nameUser=result.getString("login");
         this.idBook=result.getInt("id_livre");
-        this.nameBook="commane sql a faire ";
+        this.nameBook=result.getString("titre");
     }
 
     public Advice(int idBook, Date date, int star, String comment, String nameUser) {

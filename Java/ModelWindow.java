@@ -88,7 +88,8 @@ public class ModelWindow {
     public void refreshAdvice() throws SQLException {
         ArrayList<Advice> adviceList = new ArrayList<Advice>();
         Statement stmt = connection.createStatement();
-        ResultSet res = stmt.executeQuery("SELECT * FROM Avis");
+        ResultSet res = stmt.executeQuery("SELECT avis.id_livre, avis.login, avis.commentaire, avis.etoiles, " +
+                "avis.date, livre.titre FROM avis JOIN livre ON livre.id_livre = avis.id_livre");
 
         while(res.next()){
             adviceList.add(new Advice(res));
