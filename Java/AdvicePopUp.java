@@ -19,7 +19,7 @@ public class AdvicePopUp extends PopUp{
         panel.add(new JLabel("login :"));
         JTextField login = new JTextField();
         panel.add(login);
-        panel.add(new JLabel("livre :"));
+        panel.add(new JLabel("ID livre :"));
         JTextField idBook = new JTextField();
         panel.add(idBook);
         panel.add(new JLabel("commentaire :"));

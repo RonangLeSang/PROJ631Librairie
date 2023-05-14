@@ -60,8 +60,7 @@ public class BookPopUp extends PopUp{
         panBouton.add(valider);
 
         annuler.addActionListener(new CancelListener(this));
-        JTextField idBook = new JTextField();
-        valider.addActionListener(new ValidateAddListener(idBook, title, author, genre, publisher, image, dateDays, dateMonth, dateYear, pageCount, summary, language, modelWindow, 3, this));
+        valider.addActionListener(new ValidateAddListener(title, author, genre, publisher, image, dateDays, dateMonth, dateYear, pageCount, summary, language, modelWindow, 3, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);
         panelGlobal.add(panBouton,BorderLayout.SOUTH);

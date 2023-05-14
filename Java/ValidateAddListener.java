@@ -21,6 +21,8 @@ public class ValidateAddListener implements ActionListener {
     private JTextField publisher;
     private JTextField image;
     private JTextField dateYear;
+    private JTextField dateMonth;
+    private JTextField dateDays;
     private JTextField pageCount;
     private JTextField summary;
     private JTextField language;
@@ -43,13 +45,15 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
-    public ValidateAddListener(JTextField idBookB,JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField dateDays,JTextField dateMonth,JTextField dateYear, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
+    public ValidateAddListener(JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField dateDays,JTextField dateMonth,JTextField dateYear, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
         this.title=title;
         this.author=author;
         this.genre=genre;
         this.publisher=publisher;
         this.image=image;
         this.dateYear=dateYear;
+        this.dateMonth=dateMonth;
+        this.dateDays=dateDays;
         this.pageCount=pageCount;
         this.summary=summary;
         this.language=language;
@@ -97,8 +101,8 @@ public class ValidateAddListener implements ActionListener {
                 String publisherText = publisher.getText();
                 String imageText = image.getText();
                 String dateYT = dateYear.getText();
-                String dateDT = dateYear.getText();
-                String dateMT = dateYear.getText();
+                String dateDT = dateDays.getText();
+                String dateMT = dateMonth.getText();
                 int dateYI = Integer.parseInt(dateYT);
                 int dateMI = Integer.parseInt(dateMT);
                 int dateDI = Integer.parseInt(dateDT);
