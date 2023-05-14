@@ -1,5 +1,3 @@
-import org.w3c.dom.Text;
-
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,12 +5,12 @@ import java.sql.SQLException;
 public class Advice extends Item{
 
 
-    private Date date;
-    private int star;
-    private String comment;
+    private final Date date;
+    private final int star;
+    private final String comment;
     private String nameBook;
-    private int idBook;
-    private String nameUser;
+    private final int idBook;
+    private final String nameUser;
 
     public Advice(ResultSet result) throws SQLException {
 

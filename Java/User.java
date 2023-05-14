@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class User extends Item{
   private String login;
-  private String password;
-  private Date creationDate;
+  private final String password;
+  private final Date creationDate;
 
   public User(ResultSet result) throws SQLException {
     this.login = result.getString("login");
@@ -27,22 +27,6 @@ public class User extends Item{
 
   public void setLogin(String login) {
     this.login = login;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public Date getCreationDate() {
-    return creationDate;
-  }
-
-  public void setCreationDate(Date creationDate) {
-    this.creationDate = creationDate;
   }
 
   @Override

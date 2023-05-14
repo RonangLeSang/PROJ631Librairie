@@ -1,15 +1,13 @@
 import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
-import java.awt.EventQueue;
 
 public class ModelWindow {
 
-    private Connection connection;
-    private ArrayList<Book> bookList = new ArrayList<Book>();
-    private ArrayList<User> userList = new ArrayList<User>();
-    private ArrayList<Advice> adviceList = new ArrayList<Advice>();
+    private final Connection connection;
+    private ArrayList<Book> bookList = new ArrayList<>();
+    private ArrayList<User> userList = new ArrayList<>();
+    private ArrayList<Advice> adviceList = new ArrayList<>();
     private JPanel displayedPanel = new JPanel();
     private int tab = 1;
     private MainWindow window = null;
@@ -36,22 +34,22 @@ public class ModelWindow {
 
     public void setDisplay(int index){
         displayedPanel = new JPanel();
-        switch(index){
-            case 1:
-                for(User user: userList){
+        switch (index) {
+            case 1 -> {
+                for (User user : userList) {
                     displayedPanel.add(new BoxItem(user, this));
                 }
-                break;
-            case 2:
-                for(Book book: bookList){
+            }
+            case 2 -> {
+                for (Book book : bookList) {
                     displayedPanel.add(new BoxItem(book, this));
                 }
-                break;
-            case 3:
-                for(Advice advice: adviceList){
+            }
+            case 3 -> {
+                for (Advice advice : adviceList) {
                     displayedPanel.add(new BoxItem(advice, this));
                 }
-                break;
+            }
         }
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
     }
@@ -64,7 +62,7 @@ public class ModelWindow {
     }
 
     public void refreshUser() throws SQLException {
-        ArrayList<User> userList = new ArrayList<User>();
+        ArrayList<User> userList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery("SELECT * FROM utilisateur");
 
@@ -75,7 +73,7 @@ public class ModelWindow {
     }
 
     public void refreshBook() throws SQLException {
-        ArrayList<Book> bookList = new ArrayList<Book>();
+        ArrayList<Book> bookList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery("SELECT * FROM Livre");
 
@@ -86,7 +84,7 @@ public class ModelWindow {
     }
 
     public void refreshAdvice() throws SQLException {
-        ArrayList<Advice> adviceList = new ArrayList<Advice>();
+        ArrayList<Advice> adviceList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery("SELECT avis.id_livre, avis.login, avis.commentaire, avis.etoiles, " +
                 "avis.date, livre.titre FROM avis JOIN livre ON livre.id_livre = avis.id_livre");
@@ -108,7 +106,4 @@ public class ModelWindow {
         this.window = window;
     }
 
-    public MainWindow getWindow(){
-        return window;
-    }
 }

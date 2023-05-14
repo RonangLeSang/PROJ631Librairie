@@ -1,10 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class AddButtonListener implements ActionListener{
 
-    private ModelWindow modelWindow;
+    private final ModelWindow modelWindow;
 
     public AddButtonListener(ModelWindow modelWindow) {
         this.modelWindow = modelWindow;
@@ -12,18 +11,10 @@ public class AddButtonListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (modelWindow.getTab()){
-            case 1:
-                UserPopUp userPopUp = new UserPopUp(modelWindow);
-                break;
-
-            case 2:
-                BookPopUp bookPopUp = new BookPopUp(modelWindow);
-                break;
-
-            case 3:
-                AdvicePopUp advicePopUp = new AdvicePopUp(modelWindow);
-                break;
+        switch (modelWindow.getTab()) {
+            case 1 -> new UserPopUp(modelWindow);
+            case 2 -> new BookPopUp(modelWindow);
+            case 3 -> new AdvicePopUp(modelWindow);
         }
     }
 }

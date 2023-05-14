@@ -7,8 +7,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
 
-        EventQueue.invokeLater(new Runnable() {
-        public void run() {
+        EventQueue.invokeLater(() -> {
             String url = "jdbc:mysql://localhost:3306/tafarou";
             String user = "root";
             String passwd = "";
@@ -23,7 +22,7 @@ public class Main {
                 System.exit(0);
             }
 
-            ModelWindow modelWindow = null;
+            ModelWindow modelWindow;
             try {
                 modelWindow = new ModelWindow(conn);
                 MainWindow window = new MainWindow(modelWindow);
@@ -32,7 +31,6 @@ public class Main {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }
-    });
+        });
     }
 }

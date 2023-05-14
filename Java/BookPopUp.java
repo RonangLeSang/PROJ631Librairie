@@ -1,38 +1,10 @@
 import javax.swing.*;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.Calendar;
-import java.util.Date;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 public class BookPopUp extends PopUp{
-    private ModelWindow modelWindow;
-    private JTextField idBook =new JTextField();
-    private JTextField title = new JTextField();
-    private JTextField author = new JTextField();
-    private JTextField genre = new JTextField();
-    private JTextField publisher = new JTextField();
-    private JTextField image = new JTextField();
-    private JTextField dateYear = new JTextField("year");
-    private JTextField dateMonth = new JTextField("month");
-    private JTextField dateDays = new JTextField("day");
 
-    private JTextField pageCount = new JTextField();
-    private JTextField summary = new JTextField();
-    private JTextField language = new JTextField();
-
-    private String sql;
-    private JPanel panDate=new JPanel();
-    private JPanel panBouton=new JPanel();
-    private JPanel panelGlobal=new JPanel();
     public BookPopUp(ModelWindow modelWindow) {
-        super(modelWindow);
+        super();
         GridLayout tableauBook=new GridLayout(10, 4);
         GridLayout yearMonthDay=new GridLayout(1, 3);
         setSize(1000, 600);
@@ -40,43 +12,56 @@ public class BookPopUp extends PopUp{
         JButton valider=new JButton("valider");
         JButton annuler=new JButton("annuler");
 
+        JPanel panelGlobal = new JPanel();
         panelGlobal.setLayout(new BorderLayout());
         JPanel panel = new JPanel();
         panel.setLayout(tableauBook);
-//        panel.add(new JLabel("identifiant :"));
-//        panel.add(idBook);
         panel.add(new JLabel("titre :"));
+        JTextField title = new JTextField();
         panel.add(title);
         panel.add(new JLabel("author :"));
+        JTextField author = new JTextField();
         panel.add(author);
         panel.add(new JLabel("genre:"));
+        JTextField genre = new JTextField();
         panel.add(genre);
 
         panel.add(new JLabel("publisher:"));
+        JTextField publisher = new JTextField();
         panel.add(publisher);
 
         panel.add(new JLabel("image:"));
+        JTextField image = new JTextField();
         panel.add(image);
 
         panel.add(new JLabel("date:"));
+        JPanel panDate = new JPanel();
         panDate.setLayout(yearMonthDay);
+        JTextField dateYear = new JTextField("year");
         panDate.add(dateYear);
+        JTextField dateMonth = new JTextField("month");
         panDate.add(dateMonth);
+        JTextField dateDays = new JTextField("day");
         panDate.add(dateDays);
         panel.add(panDate);
 
         panel.add(new JLabel("nombre page:"));
+        JTextField pageCount = new JTextField();
         panel.add(pageCount);
         panel.add(new JLabel("summary:"));
+        JTextField summary = new JTextField();
         panel.add(summary);
         panel.add(new JLabel("language:"));
+        JTextField language = new JTextField();
         panel.add(language);
 
+        JPanel panBouton = new JPanel();
         panBouton.add(annuler);
         panBouton.add(valider);
 
         annuler.addActionListener(new CancelListener(this));
-        valider.addActionListener(new ValidateAddListener(idBook, title,author,genre,publisher,image,dateDays,dateMonth,dateYear,pageCount,summary,language, modelWindow, 3, this));
+        JTextField idBook = new JTextField();
+        valider.addActionListener(new ValidateAddListener(idBook, title, author, genre, publisher, image, dateDays, dateMonth, dateYear, pageCount, summary, language, modelWindow, 3, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);
         panelGlobal.add(panBouton,BorderLayout.SOUTH);

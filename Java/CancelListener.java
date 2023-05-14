@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 
 public class CancelListener implements ActionListener {
 
-    private PopUp popUp;
+    private final PopUp popUp;
 
     CancelListener(PopUp popUp){
         this.popUp = popUp;

@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 public class SuppressListener implements ActionListener {
 
-    private ModelWindow modelWindow;
-    private Item item;
+    private final ModelWindow modelWindow;
+    private final Item item;
 
     public SuppressListener(ModelWindow modelWindow, Item item) {
         this.modelWindow = modelWindow;

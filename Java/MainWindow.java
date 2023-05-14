@@ -1,15 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Date;
 
 public class MainWindow extends JFrame {
 
-    private ModelWindow modelWindow;
+    private final ModelWindow modelWindow;
     private JScrollPane scrollingArea;
-    private JButton userButton = new JButton("utilisateurs");
-    private JButton bookButton = new JButton("livres");
-    private JButton adviceButton = new JButton("avis");
-    private JButton addButton = new JButton("ajouter");
+    private final JButton userButton = new JButton("utilisateurs");
+    private final JButton bookButton = new JButton("livres");
+    private final JButton adviceButton = new JButton("avis");
 
     public MainWindow(ModelWindow modelWindow) {
         super("bibliothèque administrateur");
@@ -25,6 +23,7 @@ public class MainWindow extends JFrame {
         tabsPanel.setLayout(new FlowLayout());
         headPanel.setLayout(new BorderLayout());
 
+        JButton addButton = new JButton("ajouter");
         addButton.addActionListener(new AddButtonListener(modelWindow));
         userButton.addActionListener(new ItemListener(this, 1, userButton, modelWindow));
         bookButton.addActionListener(new ItemListener(this, 2, bookButton, modelWindow));
