@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-
+<?php
+    session_start();
+    if(isset($_SESSION["auth"])){
+        $isLoggedIn = true;
+    }else{
+        $isLoggedIn = false;
+    }
+?>
 <html>
     <head>
         <title>notre livre </title>
@@ -45,8 +52,20 @@
         <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
         <div class="nav-auth">
             <div class="sign-btns">
-                <button type="button">Se connecter</button>
-                <button type="button">S'inscrire</button>
+                <?php if ($isLoggedIn): ?>
+                    <form action="deconnexion_page.php">
+                        <button type="submit">Se Déconnecter</button>
+                    </form>
+                <?php else: ?>
+                    <form action="connection_page.php">
+                        <button type="submit">Se connecter</button>
+                    </form>
+                    <form action="inscription_page.php">
+                        <button type="submit">S'inscrire</button>
+                    </form>
+
+                <?php endif; ?>
+                    
             </div>
         </div>
         
@@ -61,7 +80,7 @@
 
             <div class="book">
             <?php
-                
+            
                 $getidlivre= $_GET['id_livre'];
                 $sql = "select titre,auteur, image,resu from livre where id_livre=$getidlivre";
                 $result = mysqli_query($conn, $sql);
@@ -92,14 +111,34 @@
                         <span>&#9734; &#9734; &#9734; &#9734; &#9734;</span>
                         <span class="active">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
             </div>
-            <form action="" method="post">
-                <input type="text" id="comment" name="comment" placeholder="Laisser un commentaire">
-                <input type="submit" id="post" name="post" value="Publier">
-            </form>
-            <?php
-                $comment = $_POST["comment"];
-                $submit = $_POST["post"];
-                $sql = "insert into avis(id_livre, login, commentaire, etoiles, date) values ($getidlivre, $login, $)"
+            <?php 
+                echo "<form action='' method='post'>
+                    <input type='text' id='comment' name='comment' placeholder='Laisser un commentaire'>
+                    <input type='submit' id='publier' name='publier' value='Publier'>";
+                   
+                    if($isLoggedIn){
+                        if(!empty($_POST["comment"])){
+                            $comment = htmlspecialchars($_POST["comment"]);
+                            $login = $_SESSION['login'];
+                            $sql = "insert into avis(id_livre, login, commentaire, date) values ($getidlivre,'$login', '$comment', NOW())";
+                            $insertComment = mysqli_query($conn,$sql); 
+                            echo "<p class='succes_message'>Votre commentaire a été ajouté !</p>";
+                            
+                            
+                        }else{
+                            echo "<p class='message_error'>Veuillez renseigner un commentaire ! </p>";
+                            
+                        }
+                    
+                    
+                    }
+                    else{
+                        header("Location: connection_page.php");
+                    }
+                    
+                       
+                
+                echo"</form>";
             ?>
             
             <div class="avis">

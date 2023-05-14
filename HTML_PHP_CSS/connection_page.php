@@ -21,14 +21,22 @@
       <div align="center">
         <button type="submit" name="envoi">Se connecter</button>
       </div>
-      <?php
+     <?php
+        session_start();
+        $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
+        mysqli_select_db($conn, "tafarou");
+        
         if (isset($_POST['envoi'])){
           if(!empty($_POST["pseudo"]) AND !empty($_POST["mdp"])){
               $pseudo = htmlspecialchars($_POST["pseudo"]);
               $mdp = sha1($_POST["mdp"]);
-              $sql = "select * from utilisateur where pseudo=$pseudo and mdp=$mdp";
+              $sql = "select * from utilisateur where login='$pseudo' AND MDP='$mdp'";
               $recupUser = mysqli_query($conn, $sql);
               if(mysqli_num_rows($recupUser)>0){
+                $_SESSION["auth"] = true;
+                $_SESSION["login"] = $pseudo;
+                $_SESSION["MDP"] = $mdp;
+                header("Location: accueil.php");
                 
               }else{
                 echo "<p class='error_message'>Votre pseudo ou mot de passe est incorrect</p>";

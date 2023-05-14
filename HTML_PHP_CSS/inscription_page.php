@@ -32,12 +32,24 @@ if(isset($_POST['envoi'])){
         if($_POST["mdp"]===$_POST["cmdp"]){
             $pseudo = htmlspecialchars($_POST['pseudo']); 
             $mdp = sha1($_POST["mdp"]);
-            $sql = "insert into utilisateur(login,MDP, date_creation) values('$pseudo','$mdp', NOW())";
-            $insertUser = mysqli_query($conn,$sql);
+            
+            $sql = "select login from utilisateur where login=$pseudo";
+            $already_exists = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($already_exists)==0){
+                $sql = "insert into utilisateur(login,MDP, date_creation) values('$pseudo','$mdp', NOW())";
+                $insertUser = mysqli_query($conn,$sql);
+            }else{
+                echo "<p class='error_message'>Cette utilisateur existe déjà sur le site</p>";
+            }
+            
+            
+
+            $_SESSION["auth"] = true;
             $_SESSION["login"] = $pseudo;
             $_SESSION["MDP"] =$mdp;
 
-            echo $_SESSION["login"];
+            header("Location: accueil.php");
         }
         else{
             echo "<p class='error_message'>Les deux mots de  passe sont différents</p>";

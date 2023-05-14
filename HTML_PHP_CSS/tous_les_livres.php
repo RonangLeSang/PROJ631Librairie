@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 
+<?php
+    session_start();
+    if(isset($_SESSION["auth"])){
+        $isLoggedIn = true;
+    }else{
+        $isLoggedIn = false;
+    }
+?>
+
 <html>
     <head>
         <title>Selection de Livre</title>
@@ -47,13 +56,19 @@
         
         <div class="nav-auth">
             <div class="sign-btns">
-                <form action="connection_page.php">
-                    <button type="submit">Se connecter</button>
-                </form>
-                <form action="inscription_page.php">
-                    <button type="submit">S'inscrire</button>
-                </form>
-                
+                <?php if ($isLoggedIn): ?>
+                    <form action="deconnexion_page.php">
+                        <button type="submit">Se Déconnecter</button>
+                    </form>
+                <?php else: ?>
+                    <form action="connection_page.php">
+                        <button type="submit">Se connecter</button>
+                    </form>
+                    <form action="inscription_page.php">
+                        <button type="submit">S'inscrire</button>
+                    </form>
+                <?php endif; ?>
+                    
             </div>
         </div>
         

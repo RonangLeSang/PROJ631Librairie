@@ -84,7 +84,7 @@
     width: 210px;
  }
 
- form input#post{
+ form input#publier{
     width:100px;
     margin-top: 5px;
     margin-left: 10%;
@@ -103,7 +103,17 @@
     margin-left: 10%;
 }
 
-
+p{
+    margin-left: 10%;
+}
+p.succes_message{
+    
+    color:green;
+   
+}
+p.message_error{
+    color: red;
+}
 
 
 
