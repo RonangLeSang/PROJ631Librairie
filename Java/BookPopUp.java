@@ -19,17 +19,22 @@ public class BookPopUp extends PopUp{
     private JTextField genre = new JTextField();
     private JTextField publisher = new JTextField();
     private JTextField image = new JTextField();
-    private JTextField date = new JTextField();
+    private JTextField dateYear = new JTextField("year");
+    private JTextField dateMonth = new JTextField("month");
+    private JTextField dateDays = new JTextField("day");
+
     private JTextField pageCount = new JTextField();
     private JTextField summary = new JTextField();
     private JTextField language = new JTextField();
 
     private String sql;
+    private JPanel panDate=new JPanel();
     private JPanel panBouton=new JPanel();
     private JPanel panelGlobal=new JPanel();
     public BookPopUp(ModelWindow modelWindow) {
         super(modelWindow);
         GridLayout tableauBook=new GridLayout(10, 2);
+        GridLayout yearMonthDay=new GridLayout(1, 3);
         setSize(1000, 600);
 
         JButton valider=new JButton("valider");
@@ -56,8 +61,11 @@ public class BookPopUp extends PopUp{
         panel.add(image);
 
         panel.add(new JLabel("date:"));
-
-        panel.add(date);
+        panDate.setLayout(yearMonthDay);
+        panDate.add(dateYear);
+        panDate.add(dateMonth);
+        panDate.add(dateDays);
+        panel.add(panDate);
 
         panel.add(new JLabel("nombre page:"));
         panel.add(pageCount);
@@ -69,7 +77,7 @@ public class BookPopUp extends PopUp{
         panBouton.add(annuler);
         panBouton.add(valider);
 
-        valider.addActionListener(new ValidateAddListener(idBook, title,author,genre,publisher,image,date,pageCount,summary,language, modelWindow, 3, this));
+        valider.addActionListener(new ValidateAddListener(idBook, title,author,genre,publisher,image,dateDays,dateMonth,dateYear,pageCount,summary,language, modelWindow, 3, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);
         panelGlobal.add(panBouton,BorderLayout.SOUTH);

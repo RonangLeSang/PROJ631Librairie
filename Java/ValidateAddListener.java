@@ -21,7 +21,9 @@ public class ValidateAddListener implements ActionListener {
     private JTextField genre;
     private JTextField publisher;
     private JTextField image;
-    private JTextField date;
+    private JTextField dateDays;
+    private JTextField dateYear;
+    private JTextField dateMonth;
     private JTextField pageCount;
     private JTextField summary;
     private JTextField language;
@@ -44,14 +46,16 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
-    public ValidateAddListener(JTextField idBookB,JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField date, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
+    public ValidateAddListener(JTextField idBookB,JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField dateDays,JTextField dateMonth,JTextField dateYear, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
         this.idBookB=idBookB;
         this.title=title;
         this.author=author;
         this.genre=genre;
         this.publisher=publisher;
         this.image=image;
-        this.date=date;
+        this.dateYear=dateYear;
+        this.dateDays=dateDays;
+        this.dateMonth=dateMonth;
         this.pageCount=pageCount;
         this.summary=summary;
         this.language=language;
@@ -106,12 +110,25 @@ public class ValidateAddListener implements ActionListener {
                 String genreText=genre.getText();
                 String publisherText=publisher.getText();
                 String imageText=image.getText();
-                Date dateText=new Date(1900,11,5);//a changer
+
+                String dateYT=dateYear.getText();
+                String dateDT=dateYear.getText();
+                String dateMT=dateYear.getText();
+
+                int dateYI=Integer.parseInt(dateYT);
+                int dateMI=Integer.parseInt(dateMT);
+                int dateDI=Integer.parseInt(dateDT);
+
+
+                Date date=new Date(dateYI,dateMI,dateDI);
+
+
+
                 String pageText=pageCount.getText();
                 int pageInt=Integer.parseInt(pageText);
                 String summaryText=summary.getText();
                 String languageText=language.getText();
-                Book book=new Book(idBookBInt,titleText,authorText,genreText,publisherText,imageText,dateText,pageInt,summaryText,languageText);
+                Book book=new Book(idBookBInt,titleText,authorText,genreText,publisherText,imageText,date,pageInt,summaryText,languageText);
 
                 try {
                     modelWindow.executeRequest(book.toSQL());
