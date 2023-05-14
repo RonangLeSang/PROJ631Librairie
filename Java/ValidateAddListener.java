@@ -102,8 +102,8 @@ public class ValidateAddListener implements ActionListener {
                 break;
 
             case 3:
-                String idBookBText=idBookB.getText();
-                int idBookBInt=Integer.parseInt(idBookBText);
+//                String idBookBText=idBookB.getText();
+//                int idBookBInt=Integer.parseInt(idBookBText);
 
                 String titleText=title.getText();
                 String authorText=author.getText();
@@ -128,7 +128,7 @@ public class ValidateAddListener implements ActionListener {
                 int pageInt=Integer.parseInt(pageText);
                 String summaryText=summary.getText();
                 String languageText=language.getText();
-                Book book=new Book(idBookBInt,titleText,authorText,genreText,publisherText,imageText,date,pageInt,summaryText,languageText);
+                Book book=new Book(titleText,authorText,genreText,publisherText,imageText,date,pageInt,summaryText,languageText);
 
                 try {
                     modelWindow.executeRequest(book.toSQL());

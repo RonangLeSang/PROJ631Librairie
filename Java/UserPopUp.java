@@ -39,6 +39,7 @@ public class UserPopUp extends PopUp{
         panBouton.add(annuler);
         panBouton.add(valider);
 
+        annuler.addActionListener(new CancelListener(this));
         valider.addActionListener(new ValidateAddListener(login, passeword, modelWindow, 1, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);

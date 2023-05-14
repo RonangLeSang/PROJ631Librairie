@@ -33,7 +33,7 @@ public class BookPopUp extends PopUp{
     private JPanel panelGlobal=new JPanel();
     public BookPopUp(ModelWindow modelWindow) {
         super(modelWindow);
-        GridLayout tableauBook=new GridLayout(10, 2);
+        GridLayout tableauBook=new GridLayout(10, 4);
         GridLayout yearMonthDay=new GridLayout(1, 3);
         setSize(1000, 600);
 
@@ -43,14 +43,12 @@ public class BookPopUp extends PopUp{
         panelGlobal.setLayout(new BorderLayout());
         JPanel panel = new JPanel();
         panel.setLayout(tableauBook);
-        panel.add(new JLabel("identifiant :"));
-        panel.add(idBook);
+//        panel.add(new JLabel("identifiant :"));
+//        panel.add(idBook);
         panel.add(new JLabel("titre :"));
         panel.add(title);
         panel.add(new JLabel("author :"));
         panel.add(author);
-        panel.add(new JLabel("genre:"));
-        panel.add(genre);
         panel.add(new JLabel("genre:"));
         panel.add(genre);
 
@@ -77,6 +75,7 @@ public class BookPopUp extends PopUp{
         panBouton.add(annuler);
         panBouton.add(valider);
 
+        annuler.addActionListener(new CancelListener(this));
         valider.addActionListener(new ValidateAddListener(idBook, title,author,genre,publisher,image,dateDays,dateMonth,dateYear,pageCount,summary,language, modelWindow, 3, this));
 
         panelGlobal.add(panel,BorderLayout.CENTER);

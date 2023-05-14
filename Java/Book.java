@@ -40,6 +40,19 @@ public class Book extends Item{
     this.language = language;
   }
 
+  public Book(String title, String author, String genre, String publisher, String image, java.util.Date date, int pageCount, String summary, String language) {
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.publisher = publisher;
+    this.image = image;
+    this.date = date;
+    this.pageCount = pageCount;
+    this.summary = summary;
+    this.language = language;
+  }
+
+
   // Getters and Setters
   public int getId() {
     return id;
@@ -144,6 +157,6 @@ public class Book extends Item{
 
   @Override
   public String suppressSelf() {
-    return "DELETE FROM Avis WHERE id_livre LIKE '"+id+"'";
+    return "DELETE FROM Livre WHERE id_livre LIKE '"+id+"'";
   }
 }
