@@ -41,18 +41,16 @@ public class Book extends Item{
 
   @Override
   public String toString() {
-    return
-
-             title + '\'' +
-            ", By" + author + '\'' +
-            ", " + genre + '\'' +
+    return "id : " + id + ", " +
+             title +
+            ", par " + author +
+            ", " + genre +
 
 
             ", " + date +
 
 
-            ", '" + language + '\''
-            ;
+            ", " + language;
   }
 
   @Override

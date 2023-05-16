@@ -38,7 +38,7 @@ public class Advice extends Item{
                 nameBook+
                 ", " + nameUser +
                  ", "+       date +
-                 ", "+ star + "étoiles"
+                 ", "+ star + " étoiles"
 
                 ;
     }

@@ -96,7 +96,6 @@ public class ModelWindow {
     }
 
     public void executeRequest(String[] requests) throws SQLException {
-        System.out.println(requests);
         Statement stmt = connection.createStatement();
         for(String request : requests){
             stmt.executeUpdate(request);
