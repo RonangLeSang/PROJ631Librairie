@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ModelWindow {
+    //Classe modèle pour la vue
 
     private final Connection connection;
     private ArrayList<Book> bookList = new ArrayList<>();
@@ -20,6 +21,7 @@ public class ModelWindow {
 
     }
 
+    //getters et setters
     public void setTab(int tab){
         this.tab = tab;
     }
@@ -32,6 +34,11 @@ public class ModelWindow {
         return displayedPanel;
     }
 
+    public void setWindow(MainWindow window) {
+        this.window = window;
+    }
+
+    //méthode permettant d'afficher une liste d'items suivant l'onglets sélectionné
     public void setDisplay(int index){
         displayedPanel = new JPanel();
         switch (index) {
@@ -54,6 +61,7 @@ public class ModelWindow {
         displayedPanel.setLayout(new BoxLayout(displayedPanel, BoxLayout.Y_AXIS));
     }
 
+    //permet de rafraichir toutes les rubriques
     public void refreshAll() throws SQLException {
         refreshUser();
         refreshAdvice();
@@ -61,6 +69,7 @@ public class ModelWindow {
         window.setViewDisplay(tab);
     }
 
+    //permet de rafraichir la rubrique utilisateur
     public void refreshUser() throws SQLException {
         ArrayList<User> userList = new ArrayList<>();
         Statement stmt = connection.createStatement();
@@ -72,6 +81,7 @@ public class ModelWindow {
         this.userList = userList;
     }
 
+    //permet de rafraichir la rubrique livre
     public void refreshBook() throws SQLException {
         ArrayList<Book> bookList = new ArrayList<>();
         Statement stmt = connection.createStatement();
@@ -83,6 +93,7 @@ public class ModelWindow {
         this.bookList = bookList;
     }
 
+    //permet de rafraichir la rubrique avis
     public void refreshAdvice() throws SQLException {
         ArrayList<Advice> adviceList = new ArrayList<>();
         Statement stmt = connection.createStatement();
@@ -95,16 +106,13 @@ public class ModelWindow {
         this.adviceList = adviceList;
     }
 
+    //execute la requête sql passée en paramètre
     public void executeRequest(String[] requests) throws SQLException {
         Statement stmt = connection.createStatement();
         for(String request : requests){
             stmt.executeUpdate(request);
         }
         refreshAll();
-    }
-
-    public void setWindow(MainWindow window) {
-        this.window = window;
     }
 
 }

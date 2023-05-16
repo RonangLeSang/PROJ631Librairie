@@ -3,16 +3,20 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class User extends Item{
+  //Classe représentant un utilisateur
+
   private String login;
   private final String password;
   private final Date creationDate;
 
+  //création d'un nouvel utilisateur à partir d'une requête sql
   public User(ResultSet result) throws SQLException {
     this.login = result.getString("login");
     this.password = result.getString("MDP");
     this.creationDate = result.getDate("date_creation");
   }
 
+  //création d'un nouvel utilisateur à partir de champs spécifique
   public User(String login, String password, Date date) {
     super();
     this.login = login;
@@ -20,7 +24,7 @@ public class User extends Item{
     this.creationDate = date;
   }
 
-  // Getters and Setters
+  // Getters et Setters
   public String getLogin() {
     return login;
   }
@@ -38,12 +42,14 @@ public class User extends Item{
             ;
   }
 
+  //renvoit la commande sql pour insérer l'utilisateur dans la bdd
   @Override
   public String[] toSQL() {
     String[] tab = {"INSERT INTO utilisateur (login, MDP, date_creation) VALUES ('"+login+"', '"+password+"', '"+creationDate+"')"};
     return tab;
   }
 
+  //renvoit la commande sql pour supprimer l'utilisateur
   @Override
   public String[] suppressSelf() {
     String[] tab = {"DELETE FROM avis WHERE login LIKE '"+login+"'","DELETE FROM utilisateur WHERE login LIKE '"+login+"'"};

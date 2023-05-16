@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class ValidateAddListener implements ActionListener {
+    /*
+    * Classe écouteur permettant d'écouter le bouton de confirmation de création d'item
+    * */
 
     private JTextField login;
     private JTextField passeword;
@@ -28,7 +31,7 @@ public class ValidateAddListener implements ActionListener {
     private JTextField language;
 
 
-
+    //Constructeur pour écouter la création d'un nouvel utilisateur
     public ValidateAddListener(JTextField login, JTextField passeword, ModelWindow modelWindow, int type,PopUp popUp) {
         this.login = login;
         this.passeword = passeword;
@@ -36,6 +39,7 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
+    //Constructeur pour écouter la création d'un nouvel avis
     public ValidateAddListener(JTextField login, JTextField idBook,JTextField star,JTextField comment, ModelWindow modelWindow, int type,PopUp popUp) {
         this.loginA = login;
         this.star = star;
@@ -45,6 +49,7 @@ public class ValidateAddListener implements ActionListener {
         this.type = type;
         this.popUp=popUp;
     }
+    //Constructeur pour écouter la création d'un nouveau livre
     public ValidateAddListener(JTextField title, JTextField author, JTextField genre ,JTextField publisher, JTextField image,JTextField dateDays,JTextField dateMonth,JTextField dateYear, JTextField pageCount,JTextField summary, JTextField language,ModelWindow modelWindow,int type, PopUp popUp){
         this.title=title;
         this.author=author;
@@ -61,6 +66,7 @@ public class ValidateAddListener implements ActionListener {
         this.popUp=popUp;
         this.modelWindow=modelWindow;
     }
+    //ajoute à la bdd un nouvel item
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (type) {

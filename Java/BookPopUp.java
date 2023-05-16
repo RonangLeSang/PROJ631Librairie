@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 public class BookPopUp extends PopUp{
+    //popup permettant de créer un livre
 
     public BookPopUp(ModelWindow modelWindow) {
         super();

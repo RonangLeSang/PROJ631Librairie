@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class SuppressListener implements ActionListener {
+    //Classe écouteurs pour supprimer des items
 
     private final ModelWindow modelWindow;
     private final Item item;
@@ -12,6 +13,7 @@ public class SuppressListener implements ActionListener {
         this.item = item;
     }
 
+    //supprime un item et rafraichit sa rubrique
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

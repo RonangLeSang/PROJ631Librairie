@@ -4,6 +4,7 @@ import java.awt.*;
 
 
 public class UserPopUp extends PopUp{
+//popup permettant la création d'un nouvel utilisateur
 
     public UserPopUp(ModelWindow modelWindow) {
         super();

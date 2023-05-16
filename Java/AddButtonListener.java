@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddButtonListener implements ActionListener{
+    //Classe écouteurs faisant apparaitre les popups
 
     private final ModelWindow modelWindow;
 

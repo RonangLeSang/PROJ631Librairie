@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ItemListener implements ActionListener {
+    //Classe écouteurs permettant de changer d'onglet
     private final MainWindow mainWindow;
     private final int index;
     private final JButton button;

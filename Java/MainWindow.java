@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainWindow extends JFrame {
+    //fenêtre principale
 
     private final ModelWindow modelWindow;
     private JScrollPane scrollingArea;
@@ -47,6 +48,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
+    //change la liste d'items à afficher
     public void setViewDisplay(int index){
         remove(scrollingArea);
         modelWindow.setDisplay(index);
@@ -55,6 +57,7 @@ public class MainWindow extends JFrame {
         revalidate();
     }
 
+    //enlève l'arrière plan des bouttons d'onglets
     public void resetButtonsDisplay(){
         bookButton.setBackground(null);
         userButton.setBackground(null);

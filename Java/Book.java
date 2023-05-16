@@ -3,6 +3,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Book extends Item{
+  //Classe représentant un livre
   private int id;
   private final String title;
   private final String author;
@@ -14,6 +15,7 @@ public class Book extends Item{
   private final String summary;
   private final String language;
 
+  //création d'un nouveau livre à partir d'une requête sql
   public Book(ResultSet result) throws SQLException {
     this.id = result.getInt("id_livre");
     this.title = result.getString("titre");
@@ -27,6 +29,7 @@ public class Book extends Item{
     this.language = result.getString("langue");
   }
 
+  //création d'un nouveau livre à partir de champs spécifique
   public Book(String title, String author, String genre, String publisher, String image, java.util.Date date, int pageCount, String summary, String language) {
     this.title = title;
     this.author = author;
@@ -53,12 +56,14 @@ public class Book extends Item{
             ", " + language;
   }
 
+  //renvoit la commande sql pour insérer le livre dans la bdd
   @Override
   public String[] toSQL() {
     String[] tab = {"INSERT INTO `Livre` (`titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')"};
     return tab;
   }
 
+  //renvoit la commande sql pour supprimer le livre
   @Override
   public String[] suppressSelf() {
     String[] tab = {"DELETE FROM Livre WHERE id_livre LIKE '"+id+"'"};

@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Advice extends Item{
-
+    //Classe représentant un avis
 
     private final Date date;
     private final int star;
@@ -12,8 +12,8 @@ public class Advice extends Item{
     private final int idBook;
     private final String nameUser;
 
+    //création d'un nouvel avis à partir d'une requête sql
     public Advice(ResultSet result) throws SQLException {
-
         this.date=result.getDate("date");
         this.star=result.getInt("etoiles");
         this.comment=result.getString("commentaire");
@@ -22,6 +22,7 @@ public class Advice extends Item{
         this.nameBook=result.getString("titre");
     }
 
+    //création d'un nouvel utilisateur à partir de champs spécifique
     public Advice(int idBook, Date date, int star, String comment, String nameUser) {
         this.idBook = idBook;
 
@@ -43,12 +44,14 @@ public class Advice extends Item{
                 ;
     }
 
+    //renvoit la commande sql pour insérer l'avis dans la bdd
     @Override
     public String[] toSQL() {
         String[] tab = {"INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')"};
         return tab;
     }
 
+    //renvoit la commande sql pour supprimer l'utilisateur
     @Override
     public String[] suppressSelf() {
         String[] tab = {"DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'"};

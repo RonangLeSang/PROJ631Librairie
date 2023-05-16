@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AdvicePopUp extends PopUp{
+    //popup permettant la création d'avis
+
     public AdvicePopUp(ModelWindow modelWindow) {
         super();
         GridLayout tableauAdvise=new GridLayout(4, 2);
