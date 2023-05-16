@@ -95,10 +95,12 @@ public class ModelWindow {
         this.adviceList = adviceList;
     }
 
-    public void executeRequest(String request) throws SQLException {
-        System.out.println(request);
+    public void executeRequest(String[] requests) throws SQLException {
+        System.out.println(requests);
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate(request);
+        for(String request : requests){
+            stmt.executeUpdate(request);
+        }
         refreshAll();
     }
 

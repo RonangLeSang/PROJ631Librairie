@@ -1,5 +1,5 @@
 public abstract class Item {
-    public abstract String toSQL();
+    public abstract String[] toSQL();
 
-    public abstract String suppressSelf();
+    public abstract String[] suppressSelf();
 }

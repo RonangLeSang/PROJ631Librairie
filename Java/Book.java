@@ -56,12 +56,14 @@ public class Book extends Item{
   }
 
   @Override
-  public String toSQL() {
-    return "INSERT INTO `Livre` (`titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')";
+  public String[] toSQL() {
+    String[] tab = {"INSERT INTO `Livre` (`titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')"};
+    return tab;
   }
 
   @Override
-  public String suppressSelf() {
-    return "DELETE FROM Livre WHERE id_livre LIKE '"+id+"'";
+  public String[] suppressSelf() {
+    String[] tab = {"DELETE FROM Livre WHERE id_livre LIKE '"+id+"'"};
+    return tab;
   }
 }

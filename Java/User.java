@@ -39,12 +39,14 @@ public class User extends Item{
   }
 
   @Override
-  public String toSQL() {
-    return "INSERT INTO utilisateur (login, MDP, date_creation) VALUES ('"+login+"', '"+password+"', '"+creationDate+"')";
+  public String[] toSQL() {
+    String[] tab = {"INSERT INTO utilisateur (login, MDP, date_creation) VALUES ('"+login+"', '"+password+"', '"+creationDate+"')"};
+    return tab;
   }
 
   @Override
-  public String suppressSelf() {
-    return "DELETE FROM utilisateur WHERE login LIKE '"+login+"'";
+  public String[] suppressSelf() {
+    String[] tab = {"DELETE FROM avis WHERE login LIKE '"+login+"'","DELETE FROM utilisateur WHERE login LIKE '"+login+"'"};
+    return tab;
   }
 }

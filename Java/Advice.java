@@ -44,12 +44,14 @@ public class Advice extends Item{
     }
 
     @Override
-    public String toSQL() {
-        return "INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')";
+    public String[] toSQL() {
+        String[] tab = {"INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')"};
+        return tab;
     }
 
     @Override
-    public String suppressSelf() {
-        return "DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'";
+    public String[] suppressSelf() {
+        String[] tab = {"DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'"};
+        return tab;
     }
 }

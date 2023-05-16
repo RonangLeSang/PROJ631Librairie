@@ -103,7 +103,7 @@ public class ValidateAddListener implements ActionListener {
                 String dateYT = dateYear.getText();
                 String dateDT = dateDays.getText();
                 String dateMT = dateMonth.getText();
-                int dateYI = Integer.parseInt(dateYT);
+                int dateYI = Integer.parseInt(dateYT) - 1900;
                 int dateMI = Integer.parseInt(dateMT);
                 int dateDI = Integer.parseInt(dateDT);
                 Date date = new Date(dateYI, dateMI, dateDI);
