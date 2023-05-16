@@ -59,14 +59,14 @@ public class Book extends Item{
   //renvoit la commande sql pour insérer le livre dans la bdd
   @Override
   public String[] toSQL() {
-    String[] tab = {"INSERT INTO `Livre` (`titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')"};
-    return tab;
+    String[] tabIns = {"INSERT INTO `Livre` (`titre`, `auteur`, `genre`, `editeur`, `image`, `date`, `nb_page`, `resu`, `langue`) VALUES ('"+title+"', '"+author+"', '"+genre+"', '"+publisher+"', '"+image+"', '"+date+"', '"+pageCount+"', '"+summary+"', '"+language+"')"};
+    return tabIns;
   }
 
   //renvoit la commande sql pour supprimer le livre
   @Override
   public String[] suppressSelf() {
-    String[] tab = {"DELETE FROM Livre WHERE id_livre LIKE '"+id+"'"};
-    return tab;
+    String[] tabSup = {"DELETE FROM Livre WHERE id_livre LIKE '"+id+"'"};
+    return tabSup;
   }
 }

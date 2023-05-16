@@ -47,14 +47,14 @@ public class Advice extends Item{
     //renvoit la commande sql pour insérer l'avis dans la bdd
     @Override
     public String[] toSQL() {
-        String[] tab = {"INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')"};
-        return tab;
+        String[] tabIns = {"INSERT INTO `Avis` (`id_livre`, `login`, `commentaire`, `etoiles`, `date`) VALUES ('"+idBook+"', '"+nameUser+"', '"+comment+"', '"+star+"', '"+date+"')"};
+        return tabIns;
     }
 
     //renvoit la commande sql pour supprimer l'utilisateur
     @Override
     public String[] suppressSelf() {
-        String[] tab = {"DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'"};
-        return tab;
+        String[] tabSup = {"DELETE FROM Avis WHERE id_livre = '"+idBook+"' and login LIKE '"+nameUser+"'"};
+        return tabSup;
     }
 }
