@@ -29,55 +29,36 @@
     
 }
 /* Rating */
+.star{
+    font-size: 1.5rem;
+}
 
-
-.rating{
-    width:210px;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    font-size: 40px;
-    line-height: 1; 
+.rating {
+    border: none;
     margin-left: 10%;
- }
- 
- .rating span{
-     white-space: nowrap;
-     width: 100%;
- }
- 
- .rating span.active{
-     position: absolute;
-     left: 0;
-     top:0;
-     overflow: hidden;
-     color: yellow;
-     width: 0;
-     transition: all 0.3s ease-out;
- }
-   
- .rating input{
-     position: absolute;
-     width:20%;
-     height: 100%;
-     z-index: 10;
-     opacity: 0;
- }
- 
- .rating input:nth-child(1){left :0}
- .rating input:checked:nth-child(1) ~ span.active{width: 20%;}
- 
- .rating input:nth-child(2){left :20%}
- .rating input:checked:nth-child(2) ~ span.active{width: 40%;}
- 
- .rating input:nth-child(3){left :40%}
- .rating input:checked:nth-child(3) ~ span.active{width: 60%;}
- .rating input:nth-child(4){left :60%}
- .rating input:checked:nth-child(4) ~ span.active{width: 80%;}
- 
- .rating input:nth-child(5){left :80%}
- .rating input:checked:nth-child(5) ~ span.active{width: 100%;}
- 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row-reverse;
+
+  }
+  
+  .rating > input {
+    display: none;
+  }
+  
+  .rating > label:before {
+    margin: 5px;
+    font-size: 1.5em;
+    font-family: FontAwesome;
+    content: "\f005";
+  }
+  
+  .rating > input:checked ~ label:before {
+    color: #ffcc00;
+  }
+  
  form input#comment{
     height: 100px;
     margin-left: 10%;
@@ -115,7 +96,30 @@ p.message_error{
     color: red;
 }
 
+.comment h3,
+.comment span {
+        display: inline;
+        margin-right: 10px;
+}
 
+.comment p {
+    margin: 0;
+}
+
+.comment{
+    padding: 15px;
+}
+
+input[type='submit']{
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007BFF;
+}
+.info-books p{
+    margin : 0;
+}
 
 
 

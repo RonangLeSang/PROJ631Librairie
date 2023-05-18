@@ -32,14 +32,14 @@
             <span class="logo">BookTech</span>
             <a href="accueil.php" class="">Accueil</a> 
             <div class="dropdown-container">
-                <a href="#">Genres</a>
+                <a href="">Genres</a>
                 <ul class="genres-dropdown">
                     <?php
                         $sql = "select distinct genre from livre";
                         $result = mysqli_query($conn,$sql);
                         while($ligne = mysqli_fetch_assoc($result)){
                             $genre = $ligne['genre'];
-                            echo "<li><a href='#'>$genre</a></li>";
+                            echo "<li><a href='tous_les_livres.php?genre=$genre'>$genre</a></li>";
                         }
 
                     ?>
@@ -49,8 +49,14 @@
             <a href="#">Mes favoris</a>
         </div>
         <div class="search-bar">
+            <form action="" method="get">
                 <input type="text" placeholder="Rechercher">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="tous_les_livres.php"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </form>
+            <?php
+                
+            ?>
+                
         </div>
         <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
         
@@ -81,23 +87,44 @@
         <div class="books">
 
             <?php
-                $sql = "select id_livre,titre, image from livre";
-                $result = mysqli_query($conn, $sql);
+               
+               if (isset($_GET["genre"])){
+                    $genre = $_GET["genre"];
+                    $sql = "select id_livre,titre, image from livre where genre='$genre' ";
+                    $result = mysqli_query($conn, $sql);
 
-                while($ligne = mysqli_fetch_assoc($result)){
-                    $id_livre = $ligne["id_livre"];
-                    $nom_livre = $ligne['titre'];
-                    $url_image = $ligne['image'];
-                    echo "<a href=\"page_livre.php?id_livre=$id_livre\">";
-                        echo "<div class='all-books'>";
-                            echo "<img src='$url_image' alt='image du livre' height='150'><br>";
-                            echo "<span>$nom_livre</span>";
+                    while($ligne = mysqli_fetch_assoc($result)){
+                        $id_livre = $ligne["id_livre"];
+                        $nom_livre = $ligne['titre'];
+                        $url_image = $ligne['image'];
+                        echo "<a href=\"page_livre.php?id_livre=$id_livre\">";
+                            echo "<div class='all-books'>";
+                                echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                                echo "<span>$nom_livre</span>";
 
-                        echo "</div>";
-                    echo "</a>";
-                }
+                            echo "</div>";
+                        echo "</a>";
+                    }
+               }else{
+                    $sql = "select id_livre,titre, image from livre";
+                    $result = mysqli_query($conn, $sql);
 
-            ?>
+                    while($ligne = mysqli_fetch_assoc($result)){
+                        $id_livre = $ligne["id_livre"];
+                        $nom_livre = $ligne['titre'];
+                        $url_image = $ligne['image'];
+                        echo "<a href=\"page_livre.php?id_livre=$id_livre\">";
+                            echo "<div class='all-books'>";
+                                echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                                echo "<span>$nom_livre</span>";
+
+                            echo "</div>";
+                        echo "</a>";
+                    }
+
+           
+               }
+               ?>
 
         </div>
         

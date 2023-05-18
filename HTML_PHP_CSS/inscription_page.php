@@ -33,7 +33,7 @@ if(isset($_POST['envoi'])){
             $pseudo = htmlspecialchars($_POST['pseudo']); 
             $mdp = sha1($_POST["mdp"]);
             
-            $sql = "select login from utilisateur where login=$pseudo";
+            $sql = "select login from utilisateur where login='$pseudo'";
             $already_exists = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($already_exists)==0){

@@ -89,12 +89,14 @@
                     
                     $im = $livre['image'];
                     $auteur = $livre["auteur"];
+                    $resu = $livre['resu'];
                     
                     echo "<img src='$im' alt='image du livre' height='150'><br>";
                     echo "<div class='info-books'>";
                         echo "<h1>" . $livre['titre'] . "</h1><br>";
-                        echo"<h3>$auteur</h3>";
-                        echo "<p>" . $livre['resu'] . "</p>";
+                        echo"<h3>Auteur : $auteur</h3>";
+                        echo "<h2>Résumé</h2><br>";
+                        echo "<p>$resu</p>";
 
                     
                 }
@@ -102,55 +104,54 @@
                 ?>
                    
             </div>
-            <div class="rating">
-                        <input type="radio" name="x" value="1">
-                        <input type="radio" name="x" value="2">
-                        <input type="radio" name="x" value="3">
-                        <input type="radio" name="x" value="4">
-                        <input type="radio" name="x" value=5>
-                        <span>&#9734; &#9734; &#9734; &#9734; &#9734;</span>
-                        <span class="active">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-            </div>
-            <?php 
-                echo "<form action='' method='post'>
+            
+             <?php
+                echo "<form action='actionPublier.php?id_livre=$getidlivre' method='post'>" ?>
+                    <div class="rating">
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1" title="1 étoile"></label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2" title="2 étoiles"></label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3" title="3 étoiles"></label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4" title="4 étoiles"></label>
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5" title="5 étoiles"></label>
+                        
+                    </div>
+                        
+                    
                     <input type='text' id='comment' name='comment' placeholder='Laisser un commentaire'>
-                    <input type='submit' id='publier' name='publier' value='Publier'>";
-                   
-                    if($isLoggedIn){
-                        if(!empty($_POST["comment"])){
-                            $comment = htmlspecialchars($_POST["comment"]);
-                            $login = $_SESSION['login'];
-                            $sql = "insert into avis(id_livre, login, commentaire, date) values ($getidlivre,'$login', '$comment', NOW())";
-                            $insertComment = mysqli_query($conn,$sql); 
-                            echo "<p class='succes_message'>Votre commentaire a été ajouté !</p>";
-                            
-                            
-                        }else{
-                            echo "<p class='message_error'>Veuillez renseigner un commentaire ! </p>";
-                            
+                    <input type='submit' id='publier' name='publier' value='Publier'>
+                    <?php
+                        if(isset($_GET["message"])){ 
+                            $msg = $_GET["message"];
+                            echo "<p class='succes_message'>$msg</p>";
                         }
-                    
-                    
-                    }
-                    else{
-                        header("Location: connection_page.php");
-                    }
-                    
+                        if(isset($_GET["erreur"])){
+                            $error =  $_GET["erreur"];
+                            echo "<p class='message_error'>$error</p>";
+                        }
+                            
+                        
                        
-                
-                echo"</form>";
-            ?>
+                    ?>
+                </form>
+            
             
             <div class="avis">
                         <?php
 
-                $sql1 = "select etoiles,commentaire from avis ";
+                $sql1 = "select login,commentaire,DATE_FORMAT(date, '%d-%m-%Y %H:%i') as date from avis ";
                 $result1 = mysqli_query($conn, $sql1);
                 echo "<h2>Avis</h2>";
                 while($livre1 = mysqli_fetch_assoc($result1)){
+                    echo'<div class="comment">';
+                        echo "<h3>" . $livre1['login'] . "</h3>"; echo "<span>". $livre1['date']."</span>";
+                        echo "<p>" . $livre1['commentaire'] . "</p>";
+                    echo '</div>';
                     
-                    echo "<h3>" . $livre1['etoiles'] . "</h3>";
-                    echo "<p>" . $livre1['commentaire'] . "</p>";
                 }
             ?>
             </div>
