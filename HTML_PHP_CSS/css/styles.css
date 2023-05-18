@@ -105,11 +105,16 @@ nav {
   }
 
 
-  .search-bar a{
+  .search-bar button{
     text-decoration: none;
     color : black;
   }
-  .search-bar a i{
+  
+.search-bar button{
+    background-color: #007BFF;
+    border: none;
+}
+  .search-bar button i{
     position: absolute;
     bottom: 27px;
     margin-left: -30px;

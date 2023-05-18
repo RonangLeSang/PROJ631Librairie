@@ -9,7 +9,7 @@ if($_SESSION["auth"]){
         $comment = htmlspecialchars($_POST["comment"]);
         $login = $_SESSION['login'];
         
-        $num_etoites = $_POST['rating'];
+        $num_etoiles = $_POST['rating'];
         
         $sql = "select * from avis where id_livre='$getidlivre' and login='$login'";
         $verifyComment = mysqli_query($conn,$sql);
@@ -18,7 +18,7 @@ if($_SESSION["auth"]){
             header("Location: page_livre.php?id_livre=$getidlivre&erreur=$msg");
 
         }else{
-            $sql = "insert into avis(id_livre, login, commentaire,etoiles, date) values ($getidlivre,'$login', '$comment','$num_etoile', NOW())";
+            $sql = "insert into avis(id_livre, login, commentaire,etoiles, date) values ($getidlivre,'$login', '$comment','$num_etoiles', NOW())";
 
             $insertComment = mysqli_query($conn,$sql); 
             $msg = "Votre commentaire a été ajouté !";
