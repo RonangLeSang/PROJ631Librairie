@@ -110,7 +110,7 @@
             <?php
                 $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
                 mysqli_select_db($conn, "tafarou");
-                $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 10 DAY)";
+                $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 40 YEAR)";
                 $result = mysqli_query($conn, $sql);
 
                 while($ligne = mysqli_fetch_assoc($result)){
