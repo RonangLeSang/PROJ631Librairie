@@ -142,12 +142,20 @@
                 $id_livre = $ligne['id_livre'];
                 $nom_livre = $ligne['titre'];
                 $url_image = $ligne['image'];
+<<<<<<< Updated upstream
                 echo "<a href=\"page_livre.php?id_livre=$id_livre\">";   
                     echo "<div class='aimeParNous'>";
                     echo "<img src='$url_image' alt='image du livre' height='150'><br>";
                     echo "<span class='info-livre'>$nom_livre</span>";
                     echo "</div>";
                 echo "</a>";
+=======
+                echo "<div class='recent_books'>";
+                   echo "<img src='$url_image' alt='image du livre' height='150'><br>";
+                   echo "<span>$nom_livre</span>";
+
+                echo "</div>";
+>>>>>>> Stashed changes
             }
 
 
