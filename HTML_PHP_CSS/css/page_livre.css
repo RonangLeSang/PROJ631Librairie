@@ -121,5 +121,13 @@ input[type='submit']{
 }
 
 
+/* Fav */
+.fav button{
+    border: none;
+    width: 200px;
+}
 
+.fav button:hover{
+    color: blue;
+}
 

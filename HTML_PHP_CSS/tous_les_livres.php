@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<?php
-    session_start();
-    if(isset($_SESSION["auth"])){
-        $isLoggedIn = true;
-    }else{
-        $isLoggedIn = false;
-    }
-?>
 <html>
     <head>
         <title>Selection de Livre</title>

@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<?php
-    session_start();
-    if(isset($_SESSION["auth"])){
-        $isLoggedIn = true;
-    }else{
-        $isLoggedIn = false;
-    }
-?>
+
+
 <html>
     <head>
         <title>notre livre </title>
@@ -45,7 +39,27 @@
                 ?>
             </div>
             <div class="fav">
-                <a href="#">&#43;Ajouter aux favoris </a>
+                <?php 
+                    $sql = "select * from favoris where id_livre=$getidlivre";
+                    $result = mysqli_query($conn, $sql);
+                    if(mysqli_num_rows($result) == 0){
+                       echo" <form action='' method='post'>
+                            <button name='add' type='submit'>&#43;Ajouter aux favoris</button>
+                        '</form>'";
+
+                    }else{
+                        echo "<span>Livre ajouté aux favoris</span>";
+                    }
+                ?>
+                
+                <?php
+                    
+                    if(isset($_POST["add"])){
+                        $sql = "insert into favoris(id_livre) values ('$getidlivre')";
+                        mysqli_query($conn, $sql);
+                    }
+                ?>
+                
             </div>
              <?php
                 echo "<form action='actionPublier.php?id_livre=$getidlivre' method='post'>" ?>
