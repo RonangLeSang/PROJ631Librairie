@@ -64,8 +64,6 @@
             <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
         </div>
         <div class="search-bar">
-                <input type="text" placeholder="Rechercher">
-                <i class="fa-solid fa-magnifying-glass"></i>
         <form action="tous_les_livres.php" method="get">
                 <input type="text" name="search" placeholder="Rechercher">
                 <button type="submit" name="loupe"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -115,7 +113,7 @@
             <?php
                 $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
                 mysqli_select_db($conn, "tafarou");
-                $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 40 YEAR)";
+                $sql = "select id_livre, titre, image from livre where date >=DATE_SUB(NOW(),INTERVAL 30 DAY)";
                 $result = mysqli_query($conn, $sql);
 
                 while($ligne = mysqli_fetch_assoc($result)){
