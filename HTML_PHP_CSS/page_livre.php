@@ -22,56 +22,10 @@
     <?php
         $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
         mysqli_select_db($conn, "tafarou");
+        mysqli_set_charset($conn,"uft8mb4");
     ?>
     <body>
-    <nav>
-        <div class="main-navlinks">
-            <span class="logo">BookTech</span>
-            <a href="accueil.php" class="">Accueil</a> 
-            <div class="dropdown-container">
-                <a href="#">Genres</a>
-                <ul class="genres-dropdown">
-                    <?php
-                        $sql = "select distinct genre from livre";
-                        $result = mysqli_query($conn,$sql);
-                        while($ligne = mysqli_fetch_assoc($result)){
-                            $genre = $ligne['genre'];
-                            echo "<li><a href='#'>$genre</a></li>";
-                        }
-
-                    ?>
-                    
-                </ul>
-            </div>
-            <a href="#">Mes favoris</a>
-        </div>
-        <div class="search-bar">
-                <input type="text" placeholder="Rechercher">
-                <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
-        <div class="nav-auth">
-            <div class="sign-btns">
-                <?php if ($isLoggedIn): ?>
-                    <form action="deconnexion_page.php">
-                        <button type="submit">Se Déconnecter</button>
-                    </form>
-                <?php else: ?>
-                    <form action="connection_page.php">
-                        <button type="submit">Se connecter</button>
-                    </form>
-                    <form action="inscription_page.php">
-                        <button type="submit">S'inscrire</button>
-                    </form>
-
-                <?php endif; ?>
-                    
-            </div>
-        </div>
-        
-        
-
-     </nav>
+        <?php include 'navbar.php'?>
 
     
     
@@ -108,16 +62,16 @@
              <?php
                 echo "<form action='actionPublier.php?id_livre=$getidlivre' method='post'>" ?>
                     <div class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" />
-                        <label for="star1" title="5 étoile"></label>
-                        <input type="radio" id="star4" name="rating" value="4" />
-                        <label for="star2" title="4 étoiles"></label>
+                        <input type="radio" id="star1" name="rating" value="5" />
+                        <label for="star1" title="1 étoiles"></label>
+                        <input type="radio" id="star2" name="rating" value="4" />
+                        <label for="star2" title="2 étoiles"></label>
                         <input type="radio" id="star3" name="rating" value="3" />
                         <label for="star3" title="3 étoiles"></label>
-                        <input type="radio" id="star2" name="rating" value="2" />
-                        <label for="star4" title="2 étoiles"></label>
-                        <input type="radio" id="star1" name="rating" value="1" />
-                        <label for="star5" title="1 étoiles"></label>
+                        <input type="radio" id="star4" name="rating" value="2" />
+                        <label for="star4" title="4 étoiles"></label>
+                        <input type="radio" id="star5" name="rating" value="1" />
+                        <label for="star5" title="5 étoile"></label>                        
                         
                     </div>
                         
@@ -142,14 +96,15 @@
             
             <div class="avis">
                         <?php
-
-                $sql1 = "select login,commentaire,DATE_FORMAT(date, '%d-%m-%Y %H:%i') as date from avis ";
+                $currentLogin = $_SESSION["login"];
+                $sql1 = "select login,commentaire,DATE_FORMAT(date, '%d-%m-%Y') as date, etoiles from avis where login=$login";
                 $result1 = mysqli_query($conn, $sql1);
                 echo "<h2>Avis</h2>";
                 while($livre1 = mysqli_fetch_assoc($result1)){
                     echo'<div class="comment">';
-                        echo "<h3>" . $livre1['login'] . "</h3>"; echo "<span>". $livre1['date']."</span>";
+                        echo "<h3>" . $livre1['login'] . "</h3>"; echo "<span>". $livre1['date']."</span>"; echo "<span>".$livre1["etoiles"] ." étoiles"."</span>";
                         echo "<p>" . $livre1['commentaire'] . "</p>";
+                        
                     echo '</div>';
                     
                 }

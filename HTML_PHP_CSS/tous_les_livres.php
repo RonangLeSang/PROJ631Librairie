@@ -23,63 +23,10 @@
     <?php
         $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
         mysqli_select_db($conn, "tafarou");
+        mysqli_set_charset($conn,"uft8mb4");
     ?>
     <body>
-     <nav>
-        <div class="main-navlinks">
-            <i class="fa-solid fa-book" style="color: #ffffff;"></i>
-            <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
-            <span class="logo">BookTech</span>
-            <a href="accueil.php" class="">Accueil</a> 
-            <div class="dropdown-container">
-                <a href="">Genres</a>
-                <ul class="genres-dropdown">
-                    <?php
-                        $sql = "select distinct genre from livre";
-                        $result = mysqli_query($conn,$sql);
-                        while($ligne = mysqli_fetch_assoc($result)){
-                            $genre = $ligne['genre'];
-                            echo "<li><a href='tous_les_livres.php?genre=$genre'>$genre</a></li>";
-                        }
-
-                    ?>
-                    
-                </ul>
-            </div>
-            <a href="#">Mes favoris</a>
-        </div>
-        <div class="search-bar">
-            <form action="" method="get">
-                <input type="text" name="search" placeholder="Rechercher">
-                <button type="submit" name="loupe"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        
-            </form>
-            
-                
-        </div>
-        <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
-        
-        <div class="nav-auth">
-            <div class="sign-btns">
-                <?php if ($isLoggedIn): ?>
-                    <form action="deconnexion_page.php">
-                        <button type="submit">Se Déconnecter</button>
-                    </form>
-                <?php else: ?>
-                    <form action="connection_page.php">
-                        <button type="submit">Se connecter</button>
-                    </form>
-                    <form action="inscription_page.php">
-                        <button type="submit">S'inscrire</button>
-                    </form>
-                <?php endif; ?>
-                    
-            </div>
-        </div>
-        
-        
-
-     </nav>
+    <?php include 'navbar.php'?>
 
     <h1>Notre Sélection de livre</h1>
         
@@ -106,13 +53,11 @@
                     }
                }else if(isset($_GET["search"]) && !empty($_GET["search"])){
                 $search = $_GET["search"];
-                $sql = "select id_livre,titre, image from livre where titre LIKE '%$search%'";
+                $sql = "select id_livre from livre where titre LIKE '%$search%'";
                 $result = mysqli_query($conn, $sql);
 
                 while($ligne = mysqli_fetch_assoc($result)){
                     $id_livre = $ligne["id_livre"];
-                    $nom_livre = $ligne['titre'];
-                    $url_image = $ligne['image'];
                     echo "<a href=\"page_livre.php?id_livre=$id_livre\">";
                         echo "<div class='all-books'>";
                             echo "<img src='$url_image' alt='image du livre' height='150'><br>";

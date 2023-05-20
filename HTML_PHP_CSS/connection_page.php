@@ -25,6 +25,7 @@
         session_start();
         $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
         mysqli_select_db($conn, "tafarou");
+        mysqli_set_charset($conn,"uft8mb4");
         
         if (isset($_POST['envoi'])){
           if(!empty($_POST["pseudo"]) AND !empty($_POST["mdp"])){
