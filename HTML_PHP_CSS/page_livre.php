@@ -20,45 +20,33 @@
             
     </head>
     <?php
-        $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
-        mysqli_select_db($conn, "tafarou");
-        mysqli_set_charset($conn,"uft8mb4");
+        include 'connect_base.php';
     ?>
     <body>
         <?php include 'navbar.php'?>
-
-    
-    
-        
         <section id="page-container">
-
             <div class="book">
             <?php
-            
                 $getidlivre= $_GET['id_livre'];
                 $sql = "select titre,auteur, image,resu from livre where id_livre=$getidlivre";
                 $result = mysqli_query($conn, $sql);
-                
                 while($livre = mysqli_fetch_assoc($result)){
-                    
                     $im = $livre['image'];
                     $auteur = $livre["auteur"];
                     $resu = $livre['resu'];
-                    
                     echo "<img src='$im' alt='image du livre' height='150'><br>";
                     echo "<div class='info-books'>";
                         echo "<h1>" . $livre['titre'] . "</h1><br>";
                         echo"<h3>Auteur : $auteur</h3>";
                         echo "<h2>Résumé</h2><br>";
                         echo "<p>$resu</p>";
-
-                    
                 }
                 echo "</div>";
                 ?>
-                   
             </div>
-            
+            <div class="fav">
+                <a href="#">&#43;Ajouter aux favoris </a>
+            </div>
              <?php
                 echo "<form action='actionPublier.php?id_livre=$getidlivre' method='post'>" ?>
                     <div class="rating">
@@ -72,10 +60,7 @@
                         <label for="star4" title="4 étoiles"></label>
                         <input type="radio" id="star5" name="rating" value="1" />
                         <label for="star5" title="5 étoile"></label>                        
-                        
                     </div>
-                        
-                    
                     <input type='text' id='comment' name='comment' placeholder='Laisser un commentaire'>
                     <input type='submit' id='publier' name='publier' value='Publier'>
                     <?php
@@ -87,17 +72,11 @@
                             $error =  $_GET["erreur"];
                             echo "<p class='message_error'>$error</p>";
                         }
-                            
-                        
-                       
                     ?>
-                </form>
-            
-            
+                </form>            
             <div class="avis">
                         <?php
-                $currentLogin = $_SESSION["login"];
-                $sql1 = "select login,commentaire,DATE_FORMAT(date, '%d-%m-%Y') as date, etoiles from avis where login=$login";
+                $sql1 = "select login,commentaire,DATE_FORMAT(date, '%d-%m-%Y') as date, etoiles from avis where id_livre=$getidlivre";
                 $result1 = mysqli_query($conn, $sql1);
                 echo "<h2>Avis</h2>";
                 while($livre1 = mysqli_fetch_assoc($result1)){
@@ -106,18 +85,9 @@
                         echo "<p>" . $livre1['commentaire'] . "</p>";
                         
                     echo '</div>';
-                    
                 }
             ?>
             </div>
-       
-           
-    </section>
-
-
-       
-
-        
-        
+        </section>               
     </body>
 </html>

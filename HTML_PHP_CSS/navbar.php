@@ -1,4 +1,14 @@
+<?php
+    include 'connect_base.php';
+    session_start();
+    if(isset($_SESSION["auth"])){
+        $isLoggedIn = true;
+    }else{
+        $isLoggedIn = false;
+    }
+?>
 <nav>
+        
         <div class="main-navlinks">
             <span class="logo">BookTech</span>
             <a href="accueil.php" class="">Accueil</a> 
@@ -11,22 +21,19 @@
                         $result = mysqli_query($conn,$sql);
                         while($ligne = mysqli_fetch_assoc($result)){
                             $genre = $ligne['genre'];
-                            echo "<li><a href='#'>$genre</a></li>";
+                            echo "<li><a href='tous_les_livres.php?genre=$genre'>$genre</a></li>";
                         }
-
                     ?>
-                    
                 </ul>
             </div>
-            <a href="#">Mes favoris</a>
-            
+
+            <a href="page_favoris.php">Mes favoris</a>
             <script src="https://kit.fontawesome.com/f19527decd.js" crossorigin="anonymous"></script>
         </div>
         <div class="search-bar">
             <form action="" method="get">
                 <input type="text" name="search" placeholder="Rechercher">
                 <button type="submit" name="loupe"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        
             </form>
         </div>
         <div class="nav-auth">
@@ -43,7 +50,6 @@
                         <button type="submit">S'inscrire</button>
                     </form>
                 <?php endif; ?>
-                    
             </div>
         </div>
     </nav>

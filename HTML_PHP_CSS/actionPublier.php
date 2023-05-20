@@ -1,9 +1,7 @@
 <meta charset="utf-8">
 <?php
 session_start();
-$conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
-mysqli_select_db($conn, "tafarou");
-mysqli_set_charset($conn,"uft8mb4");
+include 'connect_base.php';
 if($_SESSION["auth"]){
     $getidlivre = $_GET['id_livre'];
     if(!empty($_POST["comment"]) and !empty($_POST["rating"])){

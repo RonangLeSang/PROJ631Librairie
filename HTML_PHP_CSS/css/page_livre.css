@@ -1,4 +1,9 @@
-
+#page-container {
+    margin-left: 10%;
+}
+img {
+    margin-right: 10%;
+}
 
 .book h1{
     
@@ -18,12 +23,11 @@
   }
   
 .book {
-    margin-left: 10%;
+    
     display: flex;
 }
 
 .info-books{
-    margin-left: 10%;
     margin-top: 10%;
     
     
@@ -35,7 +39,7 @@
 
 .rating {
     border: none;
-    margin-left: 10%;
+    
     padding-top: 30px;
     padding-bottom: 30px;
     display: flex;
@@ -61,14 +65,14 @@
   
  form input#comment{
     height: 100px;
-    margin-left: 10%;
+    
     width: 210px;
  }
 
  form input#publier{
     width:100px;
     margin-top: 5px;
-    margin-left: 10%;
+    
  }
 
  form{
@@ -80,13 +84,8 @@
 
 
 /* avis */
-.avis {
-    margin-left: 10%;
-}
 
-p{
-    margin-left: 10%;
-}
+
 p.succes_message{
     
     color:green;

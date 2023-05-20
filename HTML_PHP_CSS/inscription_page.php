@@ -24,9 +24,7 @@
       </div>
       <?php
 session_start();
-// Connexion à la base de données
-$conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
-mysqli_select_db($conn, "tafarou");
+include 'connect_base.php';
 if(isset($_POST['envoi'])){
     if(!empty($_POST["pseudo"]) AND !empty($_POST['mdp']) AND !empty($_POST['cmdp'])){
         if($_POST["mdp"]===$_POST["cmdp"]){
