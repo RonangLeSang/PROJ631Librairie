@@ -52,7 +52,7 @@
                         $result = mysqli_query($conn,$sql);
                         while($ligne = mysqli_fetch_assoc($result)){
                             $genre = $ligne['genre'];
-                            echo "<li><a href='#'>$genre</a></li>";
+                            echo "<li><a href='tous_les_livres.php?genre=$genre'>$genre</a></li>";
                         }
 
                     ?>
