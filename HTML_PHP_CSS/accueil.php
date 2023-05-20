@@ -66,6 +66,11 @@
         <div class="search-bar">
                 <input type="text" placeholder="Rechercher">
                 <i class="fa-solid fa-magnifying-glass"></i>
+        <form action="tous_les_livres.php" method="get">
+                <input type="text" name="search" placeholder="Rechercher">
+                <button type="submit" name="loupe"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        
+            </form>
         </div>
         <div class="nav-auth">
             <div class="sign-btns">
