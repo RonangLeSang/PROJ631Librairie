@@ -1,5 +1,5 @@
 <?php   
-    $conn = @mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");    
+    $conn = mysqli_connect("localhost", "root", "", "tafarou");
     if (mysqli_connect_errno()) {
             $msg = "erreur ". mysqli_connect_error();
         } else {  
