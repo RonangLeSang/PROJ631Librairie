@@ -18,7 +18,9 @@
         </h1>
         <div class="books">
         <?php
-            $sql = "select id_livre from favoris";
+        if(isset($_SESSION["login"])){
+            $currentLogin = $_SESSION["login"];
+            $sql = "select id_livre from favoris where login='$currentLogin'";
             $result = mysqli_query($conn, $sql);
             while($ligne = mysqli_fetch_assoc($result)){
                 $id_livre = $ligne["id_livre"];
@@ -37,6 +39,8 @@
 
             }
         }
+        }
+     
             
         ?>
         </div>

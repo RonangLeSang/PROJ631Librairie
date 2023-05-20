@@ -131,3 +131,9 @@ input[type='submit']{
     color: blue;
 }
 
+.search-bar button i{
+    position: absolute;
+    bottom: 27px;
+    margin-left: 140px;
+  }
+

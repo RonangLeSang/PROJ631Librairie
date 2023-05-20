@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <html>
     <head>
         <title>notre livre </title>
@@ -40,23 +38,27 @@
             </div>
             <div class="fav">
                 <?php 
-                    $sql = "select * from favoris where id_livre=$getidlivre";
-                    $result = mysqli_query($conn, $sql);
-                    if(mysqli_num_rows($result) == 0){
-                       echo" <form action='' method='post'>
+                    if(isset($_SESSION['login'])){
+                        $currentLogin = $_SESSION['login'];
+                        $sql = "select * from favoris where id_livre='$getidlivre' and login='$currentLogin'";
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result) == 0){
+                        echo" <form action='' method='post'>
                             <button name='add' type='submit'>&#43;Ajouter aux favoris</button>
                         '</form>'";
 
                     }else{
                         echo "<span>Livre ajouté aux favoris</span>";
                     }
+                    }
+                    
+                    
                 ?>
-                
                 <?php
                     
                     if(isset($_POST["add"])){
-                        $sql = "insert into favoris(id_livre) values ('$getidlivre')";
-                        mysqli_query($conn, $sql);
+                        $sql = "insert into favoris(id_livre, login) values ('$getidlivre', '$currentLogin')";
+                        $result = mysqli_query($conn, $sql);
                     }
                 ?>
                 
