@@ -35,7 +35,7 @@
         <div class="love">
             <h2>Les coups de coeur</h2>
         <?php
-            $conn = mysqli_connect("tp-epua:3308", "tafarou", "rt45y8at");
+            $conn = mysqli_connect("localhost", "root", "", "tafarou");
             mysqli_select_db($conn, "tafarou");
             $sql1 = "SELECT livre.id_livre,titre,image ,coeur.commentaire from livre join coeur on livre.id_livre=coeur.id_livre ";
             $result1 = mysqli_query($conn, $sql1);
